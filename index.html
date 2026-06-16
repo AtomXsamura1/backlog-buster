@@ -19,7 +19,6 @@
 <div id="root"></div>
 <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-<script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script>
   // Connexion à ta base Supabase (clé publishable = sûre à exposer publiquement)
@@ -28,574 +27,1924 @@
   const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 </script>
 <script>const STEAM_LIBRARY = [{"id": "1938090", "name": "Call of Duty®", "minutes": 10291, "achUnlocked": 9, "achTotal": 157, "achPct": 5.732483863830566}, {"id": "413150", "name": "Stardew Valley", "minutes": 6809, "achUnlocked": 29, "achTotal": 49, "achPct": 59.18367385864258}, {"id": "1086940", "name": "Baldur's Gate 3", "minutes": 6176, "achUnlocked": 47, "achTotal": 54, "achPct": 87.03704071044922}, {"id": "3070070", "name": "TCG Card Shop Simulator", "minutes": 4974, "achUnlocked": 32, "achTotal": 45, "achPct": 71.11111450195312}, {"id": "1604030", "name": "V Rising", "minutes": 4247, "achUnlocked": 34, "achTotal": 49, "achPct": 69.38775634765625}, {"id": "2161700", "name": "Persona 3 Reload", "minutes": 3824, "achUnlocked": 38, "achTotal": 56, "achPct": 67.85713958740234}, {"id": "1326470", "name": "Sons Of The Forest", "minutes": 3106, "achUnlocked": 19, "achTotal": 32, "achPct": 59.375}, {"id": "1041720", "name": "Kingdoms of Amalur: Re-Reckoning", "minutes": 3103, "achUnlocked": 63, "achTotal": 69, "achPct": 91.3043441772461}, {"id": "2344520", "name": "Diablo® IV", "minutes": 2751, "achUnlocked": 16, "achTotal": 45, "achPct": 35.55555725097656}, {"id": "3164500", "name": "Schedule I", "minutes": 2747, "achUnlocked": 7, "achTotal": 13, "achPct": 53.846153259277344}, {"id": "435150", "name": "Divinity: Original Sin 2", "minutes": 2638, "achUnlocked": 1, "achTotal": 97, "achPct": 1.0309277772903442}, {"id": "2385530", "name": "PGA TOUR 2K25", "minutes": 2309, "achUnlocked": 10, "achTotal": 35, "achPct": 28.571428298950195}, {"id": "292030", "name": "The Witcher 3: Wild Hunt", "minutes": 2288, "achUnlocked": 19, "achTotal": 78, "achPct": 24.35897445678711}, {"id": "1623730", "name": "Palworld", "minutes": 2267, "achUnlocked": 10, "achTotal": 57, "achPct": 17.543859481811523}, {"id": "1173800", "name": "FINAL FANTASY IV", "minutes": 2255, "achUnlocked": 30, "achTotal": 30, "achPct": 100}, {"id": "2909400", "name": "FINAL FANTASY VII REBIRTH", "minutes": 2223, "achUnlocked": 24, "achTotal": 61, "achPct": 39.344261169433594}, {"id": "2679460", "name": "Metaphor: ReFantazio", "minutes": 2031, "achUnlocked": 14, "achTotal": 44, "achPct": 31.81818199157715}, {"id": "2852190", "name": "Monster Hunter Stories 3: Twisted Reflection", "minutes": 2007, "achUnlocked": 8, "achTotal": 52, "achPct": 15.384614944458008}, {"id": "379430", "name": "Kingdom Come: Deliverance", "minutes": 1911, "achUnlocked": 11, "achTotal": 82, "achPct": 13.414633750915527}, {"id": "646570", "name": "Slay the Spire", "minutes": 1796, "achUnlocked": 15, "achTotal": 46, "achPct": 32.60869598388672}, {"id": "3321460", "name": "Crimson Desert", "minutes": 1678, "achUnlocked": 2, "achTotal": 34, "achPct": 5.882352828979492}, {"id": "881020", "name": "Granblue Fantasy: Relink", "minutes": 1611, "achUnlocked": 34, "achTotal": 54, "achPct": 62.96296310424805}, {"id": "1091500", "name": "Cyberpunk 2077", "minutes": 1588, "achUnlocked": 6, "achTotal": 57, "achPct": 10.526315689086914}, {"id": "1245620", "name": "ELDEN RING", "minutes": 1523, "achUnlocked": 4, "achTotal": 42, "achPct": 9.523809432983398}, {"id": "1903340", "name": "Clair Obscur: Expedition 33", "minutes": 1499, "achUnlocked": 17, "achTotal": 55, "achPct": 30.909090042114258}, {"id": "815370", "name": "Green Hell", "minutes": 1441, "achUnlocked": 18, "achTotal": 68, "achPct": 26.47058868408203}, {"id": "1092790", "name": "Inscryption", "minutes": 1340, "achUnlocked": 23, "achTotal": 40, "achPct": 57.5}, {"id": "1658280", "name": "Eiyuden Chronicle: Hundred Heroes", "minutes": 1321, "achUnlocked": 6, "achTotal": 56, "achPct": 10.714285850524902}, {"id": "2536520", "name": "Diablo II: Resurrected – Infernal Edition", "minutes": 1292, "achUnlocked": 10, "achTotal": 43, "achPct": 23.255813598632812}, {"id": "2321470", "name": "Deep Rock Galactic: Survivor", "minutes": 1254, "achUnlocked": 23, "achTotal": 300, "achPct": 7.666666507720947}, {"id": "2379780", "name": "Balatro", "minutes": 1242, "achUnlocked": 9, "achTotal": 31, "achPct": 29.032258987426758}, {"id": "208580", "name": "STAR WARS™ Knights of the Old Republic™ II: The Sith Lords™", "minutes": 1211, "achUnlocked": 18, "achTotal": 57, "achPct": 31.578947067260742}, {"id": "2483190", "name": "Forza Horizon 6", "minutes": 1116, "achUnlocked": 23, "achTotal": 57, "achPct": 40.35087585449219}, {"id": "213670", "name": "South Park™: The Stick of Truth™", "minutes": 1101, "achUnlocked": 38, "achTotal": 50, "achPct": 76}, {"id": "2292800", "name": "Blacksmith Master", "minutes": 1096, "achUnlocked": 68, "achTotal": 72, "achPct": 94.44444274902344}, {"id": "1284190", "name": "The Planet Crafter", "minutes": 1059, "achUnlocked": 19, "achTotal": 55, "achPct": 34.54545593261719}, {"id": "1466860", "name": "Age of Empires IV: Anniversary Edition", "minutes": 1042, "achUnlocked": 17, "achTotal": 175, "achPct": 9.714285850524902}, {"id": "1144200", "name": "Ready or Not", "minutes": 1018, "achUnlocked": 16, "achTotal": 66, "achPct": 24.24242401123047}, {"id": "271590", "name": "Grand Theft Auto V Legacy", "minutes": 983, "achUnlocked": 5, "achTotal": 77, "achPct": 6.49350643157959}, {"id": "2933130", "name": "The Lord of the Rings: Return to Moria™", "minutes": 969, "achUnlocked": 5, "achTotal": 27, "achPct": 18.518518447875977}, {"id": "427520", "name": "Factorio", "minutes": 948, "achUnlocked": 8, "achTotal": 88, "achPct": 9.090909004211426}, {"id": "2623190", "name": "The Elder Scrolls IV: Oblivion Remastered", "minutes": 898, "achUnlocked": 9, "achTotal": 60, "achPct": 15}, {"id": "1145350", "name": "Hades II", "minutes": 897, "achUnlocked": 2, "achTotal": 50, "achPct": 4}, {"id": "2993780", "name": "FANTASY LIFE i: The Girl Who Steals Time", "minutes": 878, "achUnlocked": 13, "achTotal": 47, "achPct": 27.659574508666992}, {"id": "2358720", "name": "Black Myth: Wukong", "minutes": 866, "achUnlocked": 16, "achTotal": 81, "achPct": 19.75308609008789}, {"id": "262060", "name": "Darkest Dungeon®", "minutes": 834, "achUnlocked": 29, "achTotal": 120, "achPct": 24.16666603088379}, {"id": "489830", "name": "The Elder Scrolls V: Skyrim Special Edition", "minutes": 815, "achUnlocked": 11, "achTotal": 75, "achPct": 14.666666984558105}, {"id": "3582250", "name": "Farm to Table", "minutes": 787, "achUnlocked": 5, "achTotal": 12, "achPct": 41.66666793823242}, {"id": "1771300", "name": "Kingdom Come: Deliverance II", "minutes": 786, "achUnlocked": 4, "achTotal": 83, "achPct": 4.819277286529541}, {"id": "1321440", "name": "Cassette Beasts", "minutes": 783, "achUnlocked": 26, "achTotal": 123, "achPct": 21.138212203979492}, {"id": "1551360", "name": "Forza Horizon 5", "minutes": 759, "achUnlocked": 17, "achTotal": 164, "achPct": 10.365853309631348}, {"id": "883710", "name": "Resident Evil 2", "minutes": 726, "achUnlocked": 19, "achTotal": 44, "achPct": 43.181819915771484}, {"id": "1904480", "name": "Absolum", "minutes": 722, "achUnlocked": 21, "achTotal": 37, "achPct": 56.75675582885742}, {"id": "637650", "name": "FINAL FANTASY XV WINDOWS EDITION", "minutes": 713, "achUnlocked": 22, "achTotal": 97, "achPct": 22.68041229248047}, {"id": "2868840", "name": "Slay the Spire 2", "minutes": 704, "achUnlocked": 0, "achTotal": 0, "achPct": null}, {"id": "3375780", "name": "Trails in the Sky 1st Chapter", "minutes": 701, "achUnlocked": 2, "achTotal": 43, "achPct": 4.651162624359131}, {"id": "242760", "name": "The Forest", "minutes": 648, "achUnlocked": 6, "achTotal": 45, "achPct": 13.333333015441895}, {"id": "692890", "name": "Roboquest", "minutes": 642, "achUnlocked": 33, "achTotal": 86, "achPct": 38.372093200683594}, {"id": "599140", "name": "Graveyard Keeper", "minutes": 638, "achUnlocked": 11, "achTotal": 125, "achPct": 8.800000190734863}, {"id": "1462040", "name": "FINAL FANTASY VII REMAKE INTERGRADE", "minutes": 606, "achUnlocked": 16, "achTotal": 63, "achPct": 25.396825790405273}, {"id": "3017860", "name": "DOOM: The Dark Ages", "minutes": 599, "achUnlocked": 2, "achTotal": 28, "achPct": 7.142857074737549}, {"id": "1446650", "name": "BRAVELY DEFAULT II", "minutes": 595, "achUnlocked": 3, "achTotal": 50, "achPct": 6}, {"id": "552700", "name": "WORLD OF FINAL FANTASY", "minutes": 591, "achUnlocked": 7, "achTotal": 49, "achPct": 14.285714149475098}, {"id": "1328670", "name": "Mass Effect™ Legendary Edition", "minutes": 582, "achUnlocked": 11, "achTotal": 127, "achPct": 8.661417007446289}, {"id": "2479810", "name": "Gray Zone Warfare", "minutes": 547, "achUnlocked": 0, "achTotal": 0, "achPct": null}, {"id": "803600", "name": "Disgaea 5 Complete", "minutes": 539, "achUnlocked": 5, "achTotal": 51, "achPct": 9.803921699523926}, {"id": "1658150", "name": "Moonstone Island", "minutes": 525, "achUnlocked": 3, "achTotal": 59, "achPct": 5.08474588394165}, {"id": "1868140", "name": "DAVE THE DIVER", "minutes": 522, "achUnlocked": 15, "achTotal": 43, "achPct": 34.88372039794922}, {"id": "740130", "name": "Tales of ARISE", "minutes": 507, "achUnlocked": 4, "achTotal": 58, "achPct": 6.896551609039307}, {"id": "2701660", "name": "DRAGON QUEST III HD-2D Remake", "minutes": 500, "achUnlocked": 4, "achTotal": 42, "achPct": 9.523809432983398}, {"id": "2694490", "name": "Path of Exile 2", "minutes": 486, "achUnlocked": 0, "achTotal": 0, "achPct": null}, {"id": "1446780", "name": "MONSTER HUNTER RISE", "minutes": 461, "achUnlocked": 1, "achTotal": 100, "achPct": 1}, {"id": "1173820", "name": "FINAL FANTASY VI", "minutes": 459, "achUnlocked": 6, "achTotal": 37, "achPct": 16.216217041015625}, {"id": "2157830", "name": "John Carpenter's Toxic Commando", "minutes": 448, "achUnlocked": 18, "achTotal": 56, "achPct": 32.14285659790039}, {"id": "686060", "name": "Mewgenics", "minutes": 441, "achUnlocked": 8, "achTotal": 281, "achPct": 2.846975088119507}, {"id": "858820", "name": "Tribes of Midgard", "minutes": 426, "achUnlocked": 8, "achTotal": 26, "achPct": 30.769229888916016}, {"id": "292120", "name": "FINAL FANTASY XIII", "minutes": 423, "achUnlocked": 3, "achTotal": 35, "achPct": 8.571428298950195}, {"id": "2807960", "name": "Battlefield™ 6", "minutes": 404, "achUnlocked": 2, "achTotal": 53, "achPct": 3.7735848426818848}, {"id": "962130", "name": "Grounded", "minutes": 403, "achUnlocked": 5, "achTotal": 45, "achPct": 11.11111068725586}, {"id": "1174180", "name": "Red Dead Redemption 2", "minutes": 401, "achUnlocked": 2, "achTotal": 51, "achPct": 3.9215686321258545}, {"id": "1286830", "name": "STAR WARS™: The Old Republic™", "minutes": 401, "achUnlocked": 1, "achTotal": 191, "achPct": 0.5235602259635925}, {"id": "812140", "name": "Assassin's Creed Odyssey", "minutes": 391, "achUnlocked": 6, "achTotal": 93, "achPct": 6.451612949371338}, {"id": "1984270", "name": "Digimon Story Time Stranger", "minutes": 376, "achUnlocked": 6, "achTotal": 46, "achPct": 13.043478012084961}, {"id": "578080", "name": "PUBG: BATTLEGROUNDS", "minutes": 367, "achUnlocked": 8, "achTotal": 37, "achPct": 21.62162208557129}, {"id": "3527290", "name": "PEAK", "minutes": 360, "achUnlocked": 2, "achTotal": 54, "achPct": 3.7037036418914795}, {"id": "1235140", "name": "Yakuza: Like a Dragon", "minutes": 353, "achUnlocked": 3, "achTotal": 63, "achPct": 4.761904716491699}, {"id": "730", "name": "Counter-Strike 2", "minutes": 349, "achUnlocked": 1, "achTotal": 1, "achPct": 100}, {"id": "1794680", "name": "Vampire Survivors", "minutes": 346, "achUnlocked": 20, "achTotal": 243, "achPct": 8.230452537536621}, {"id": "3552140", "name": "Retro Rewind - Video Store Simulator", "minutes": 344, "achUnlocked": 2, "achTotal": 18, "achPct": 11.11111068725586}, {"id": "2767030", "name": "Marvel Rivals", "minutes": 344, "achUnlocked": 6, "achTotal": 49, "achPct": 12.244897842407227}, {"id": "553850", "name": "HELLDIVERS™ 2", "minutes": 338, "achUnlocked": 10, "achTotal": 38, "achPct": 26.3157901763916}, {"id": "1774580", "name": "STAR WARS Jedi: Survivor™", "minutes": 334, "achUnlocked": 7, "achTotal": 53, "achPct": 13.207547187805176}, {"id": "2864560", "name": "Rune Factory: Guardians of Azuma", "minutes": 332, "achUnlocked": 10, "achTotal": 81, "achPct": 12.34567928314209}, {"id": "2408820", "name": "Luma Island", "minutes": 329, "achUnlocked": 13, "achTotal": 120, "achPct": 10.833333015441895}, {"id": "3167020", "name": "Escape From Duckov", "minutes": 327, "achUnlocked": 9, "achTotal": 55, "achPct": 16.363636016845703}, {"id": "429660", "name": "Tales of Berseria", "minutes": 325, "achUnlocked": 1, "achTotal": 51, "achPct": 1.9607843160629272}, {"id": "1218210", "name": "Coromon", "minutes": 314, "achUnlocked": 5, "achTotal": 80, "achPct": 6.25}, {"id": "2515020", "name": "FINAL FANTASY XVI", "minutes": 310, "achUnlocked": 2, "achTotal": 69, "achPct": 2.8985507488250732}, {"id": "782330", "name": "DOOM Eternal", "minutes": 305, "achUnlocked": 7, "achTotal": 50, "achPct": 14}, {"id": "3949040", "name": "RV There Yet?", "minutes": 303, "achUnlocked": 0, "achTotal": 57, "achPct": 0}, {"id": "1244090", "name": "Sea of Stars", "minutes": 302, "achUnlocked": 4, "achTotal": 54, "achPct": 7.407407283782959}, {"id": "323190", "name": "Frostpunk", "minutes": 298, "achUnlocked": 1, "achTotal": 115, "achPct": 0.8695651888847351}, {"id": "3014320", "name": "OCTOPATH TRAVELER 0", "minutes": 297, "achUnlocked": 7, "achTotal": 37, "achPct": 18.91891860961914}, {"id": "1911610", "name": "Windblown", "minutes": 295, "achUnlocked": 6, "achTotal": 25, "achPct": 24}, {"id": "2667120", "name": "Ballionaire", "minutes": 295, "achUnlocked": 5, "achTotal": 23, "achPct": 21.7391300201416}, {"id": "1145360", "name": "Hades", "minutes": 285, "achUnlocked": 2, "achTotal": 49, "achPct": 4.081632614135742}, {"id": "526870", "name": "Satisfactory", "minutes": 280, "achUnlocked": 5, "achTotal": 44, "achPct": 11.363636016845703}, {"id": "1668510", "name": "The Legend of Heroes: Trails from Zero", "minutes": 277, "achUnlocked": 1, "achTotal": 49, "achPct": 2.040816307067871}, {"id": "1978590", "name": "Anger Foot", "minutes": 271, "achUnlocked": 2, "achTotal": 30, "achPct": 6.666666507720947}, {"id": "683320", "name": "GRIS", "minutes": 268, "achUnlocked": 0, "achTotal": 17, "achPct": 0}, {"id": "582010", "name": "Monster Hunter: World", "minutes": 265, "achUnlocked": 4, "achTotal": 100, "achPct": 4}, {"id": "288470", "name": "Fable Anniversary", "minutes": 263, "achUnlocked": 2, "achTotal": 50, "achPct": 4}, {"id": "1575940", "name": "Sins of a Solar Empire II", "minutes": 256, "achUnlocked": 2, "achTotal": 64, "achPct": 3.125}, {"id": "1971650", "name": "OCTOPATH TRAVELER II", "minutes": 247, "achUnlocked": 5, "achTotal": 33, "achPct": 15.151515007019043}, {"id": "2725260", "name": "ENDER MAGNOLIA: Bloom in the Mist", "minutes": 233, "achUnlocked": 9, "achTotal": 40, "achPct": 22.5}, {"id": "1402110", "name": "Eternights", "minutes": 231, "achUnlocked": 2, "achTotal": 26, "achPct": 7.692307472229004}, {"id": "1104280", "name": "The Slormancer", "minutes": 230, "achUnlocked": 4, "achTotal": 83, "achPct": 4.819277286529541}, {"id": "814370", "name": "Monster Sanctuary", "minutes": 222, "achUnlocked": 3, "achTotal": 41, "achPct": 7.317073345184326}, {"id": "588650", "name": "Dead Cells", "minutes": 218, "achUnlocked": 9, "achTotal": 121, "achPct": 7.438016414642334}, {"id": "2215430", "name": "Ghost of Tsushima DIRECTOR'S CUT", "minutes": 216, "achUnlocked": 1, "achTotal": 77, "achPct": 1.298701286315918}, {"id": "934700", "name": "Dead Island 2", "minutes": 210, "achUnlocked": 3, "achTotal": 59, "achPct": 5.08474588394165}, {"id": "1645820", "name": "SurrounDead", "minutes": 209, "achUnlocked": 11, "achTotal": 21, "achPct": 52.380950927734375}, {"id": "1336490", "name": "Against the Storm", "minutes": 208, "achUnlocked": 5, "achTotal": 80, "achPct": 6.25}, {"id": "2637990", "name": "Duck Detective: The Secret Salami", "minutes": 203, "achUnlocked": 7, "achTotal": 7, "achPct": 100}, {"id": "1817230", "name": "Hi-Fi RUSH", "minutes": 202, "achUnlocked": 10, "achTotal": 71, "achPct": 14.08450698852539}, {"id": "920210", "name": "LEGO® Star Wars™: The Skywalker Saga", "minutes": 197, "achUnlocked": 2, "achTotal": 45, "achPct": 4.44444465637207}, {"id": "1229240", "name": "Chained Echoes", "minutes": 191, "achUnlocked": 1, "achTotal": 37, "achPct": 2.702702760696411}, {"id": "2187220", "name": "Apollo Justice: Ace Attorney Trilogy", "minutes": 190, "achUnlocked": 1, "achTotal": 32, "achPct": 3.125}, {"id": "264710", "name": "Subnautica", "minutes": 184, "achUnlocked": 1, "achTotal": 17, "achPct": 5.882352828979492}, {"id": "2680010", "name": "The First Berserker: Khazan", "minutes": 171, "achUnlocked": 6, "achTotal": 57, "achPct": 10.526315689086914}, {"id": "1069160", "name": "SKALD: Against the Black Priory", "minutes": 166, "achUnlocked": 1, "achTotal": 15, "achPct": 6.666666507720947}, {"id": "2820820", "name": "Jotunnslayer: Hordes of Hel", "minutes": 165, "achUnlocked": 8, "achTotal": 38, "achPct": 21.052631378173828}, {"id": "548430", "name": "Deep Rock Galactic", "minutes": 164, "achUnlocked": 1, "achTotal": 69, "achPct": 1.4492753744125366}, {"id": "3123410", "name": "Atelier Yumia: The Alchemist of Memories & the Envisioned Land", "minutes": 164, "achUnlocked": 2, "achTotal": 47, "achPct": 4.255319118499756}, {"id": "2238900", "name": "STAR OCEAN THE SECOND STORY R", "minutes": 156, "achUnlocked": 4, "achTotal": 51, "achPct": 7.843137264251709}, {"id": "581320", "name": "Insurgency: Sandstorm", "minutes": 143, "achUnlocked": 9, "achTotal": 35, "achPct": 25.714284896850586}, {"id": "2455640", "name": "Romancing SaGa 2: Revenge of the Seven", "minutes": 142, "achUnlocked": 5, "achTotal": 51, "achPct": 9.803921699523926}, {"id": "427290", "name": "Vampyr", "minutes": 139, "achUnlocked": 4, "achTotal": 28, "achPct": 14.285714149475098}, {"id": "1875830", "name": "Shin Megami Tensei V: Vengeance", "minutes": 139, "achUnlocked": 1, "achTotal": 48, "achPct": 2.0833332538604736}, {"id": "2361770", "name": "SHINOBI: Art of Vengeance", "minutes": 134, "achUnlocked": 4, "achTotal": 29, "achPct": 13.793103218078613}, {"id": "2592160", "name": "Dispatch", "minutes": 131, "achUnlocked": 3, "achTotal": 36, "achPct": 8.333333015441895}, {"id": "632470", "name": "Disco Elysium", "minutes": 124, "achUnlocked": 0, "achTotal": 45, "achPct": 0}, {"id": "3357650", "name": "PRAGMATA", "minutes": 122, "achUnlocked": 4, "achTotal": 35, "achPct": 11.428571701049805}, {"id": "3405340", "name": "Megabonk", "minutes": 121, "achUnlocked": 17, "achTotal": 139, "achPct": 12.230216026306152}, {"id": "1121640", "name": "The Wandering Village", "minutes": 112, "achUnlocked": 0, "achTotal": 32, "achPct": 0}, {"id": "814380", "name": "Sekiro™: Shadows Die Twice", "minutes": 107, "achUnlocked": 2, "achTotal": 34, "achPct": 5.882352828979492}, {"id": "745920", "name": "Temtem", "minutes": 101, "achUnlocked": 0, "achTotal": 47, "achPct": 0}, {"id": "2527500", "name": "MiSide", "minutes": 99, "achUnlocked": 4, "achTotal": 26, "achPct": 15.384614944458008}, {"id": "1259420", "name": "Days Gone", "minutes": 94, "achUnlocked": 2, "achTotal": 67, "achPct": 2.985074520111084}, {"id": "2072450", "name": "Like a Dragon: Infinite Wealth", "minutes": 94, "achUnlocked": 0, "achTotal": 74, "achPct": 0}, {"id": "2057760", "name": "Esoteric Ebb", "minutes": 90, "achUnlocked": 1, "achTotal": 56, "achPct": 1.7857142686843872}, {"id": "2289750", "name": "Super Fantasy Kingdom", "minutes": 88, "achUnlocked": 2, "achTotal": 52, "achPct": 3.846153736114502}, {"id": "1139980", "name": "Travellers Rest", "minutes": 83, "achUnlocked": 0, "achTotal": 50, "achPct": 0}, {"id": "1817070", "name": "Marvel’s Spider-Man Remastered", "minutes": 83, "achUnlocked": 1, "achTotal": 78, "achPct": 1.2820513248443604}, {"id": "1088850", "name": "Marvel's Guardians of the Galaxy", "minutes": 82, "achUnlocked": 0, "achTotal": 59, "achPct": 0}, {"id": "1313140", "name": "Cult of the Lamb", "minutes": 80, "achUnlocked": 4, "achTotal": 57, "achPct": 7.017543792724609}, {"id": "1966720", "name": "Lethal Company", "minutes": 73, "achUnlocked": 0, "achTotal": 0, "achPct": null}, {"id": "983970", "name": "Haven", "minutes": 71, "achUnlocked": 1, "achTotal": 30, "achPct": 3.3333332538604736}, {"id": "377160", "name": "Fallout 4", "minutes": 68, "achUnlocked": 1, "achTotal": 84, "achPct": 1.1904761791229248}, {"id": "524220", "name": "NieR:Automata™", "minutes": 66, "achUnlocked": 0, "achTotal": 47, "achPct": 0}, {"id": "1115690", "name": "Yes, Your Grace", "minutes": 65, "achUnlocked": 0, "achTotal": 35, "achPct": 0}, {"id": "359870", "name": "FINAL FANTASY X/X-2 HD Remaster", "minutes": 63, "achUnlocked": 1, "achTotal": 69, "achPct": 1.4492753744125366}, {"id": "241930", "name": "Middle-earth™: Shadow of Mordor™", "minutes": 60, "achUnlocked": 1, "achTotal": 74, "achPct": 1.3513513803482056}, {"id": "1042550", "name": "Digimon Story Cyber Sleuth: Complete Edition", "minutes": 60, "achUnlocked": 2, "achTotal": 103, "achPct": 1.9417475461959839}, {"id": "356190", "name": "Middle-earth™: Shadow of War™", "minutes": 57, "achUnlocked": 0, "achTotal": 72, "achPct": 0}, {"id": "367520", "name": "Hollow Knight", "minutes": 55, "achUnlocked": 0, "achTotal": 63, "achPct": 0}, {"id": "204360", "name": "Castle Crashers", "minutes": 54, "achUnlocked": 0, "achTotal": 12, "achPct": 0}, {"id": "601840", "name": "Griftlands", "minutes": 54, "achUnlocked": 0, "achTotal": 13, "achPct": 0}, {"id": "2824490", "name": "He is Coming", "minutes": 52, "achUnlocked": 1, "achTotal": 22, "achPct": 4.545454502105713}, {"id": "668580", "name": "Atomic Heart", "minutes": 50, "achUnlocked": 1, "achTotal": 82, "achPct": 1.2195122241973877}, {"id": "1530160", "name": "Digimon World: Next Order", "minutes": 48, "achUnlocked": 1, "achTotal": 45, "achPct": 2.222222328186035}, {"id": "2366980", "name": "Thank Goodness You're Here!", "minutes": 48, "achUnlocked": 4, "achTotal": 32, "achPct": 12.5}, {"id": "2530980", "name": "Tales of Graces f Remastered", "minutes": 46, "achUnlocked": 0, "achTotal": 50, "achPct": 0}, {"id": "108600", "name": "Project Zomboid", "minutes": 42, "achUnlocked": 0, "achTotal": 0, "achPct": null}, {"id": "578650", "name": "The Outer Worlds", "minutes": 41, "achUnlocked": 1, "achTotal": 68, "achPct": 1.470588207244873}, {"id": "22380", "name": "Fallout: New Vegas", "minutes": 40, "achUnlocked": 0, "achTotal": 75, "achPct": 0}, {"id": "1983260", "name": "Dungeons of Hinterberg", "minutes": 40, "achUnlocked": 2, "achTotal": 50, "achPct": 4}, {"id": "2292260", "name": "STAR WARS™: Dark Forces Remaster", "minutes": 40, "achUnlocked": 7, "achTotal": 29, "achPct": 24.13793182373047}, {"id": "1169040", "name": "Necesse", "minutes": 39, "achUnlocked": 2, "achTotal": 48, "achPct": 4.166666507720947}, {"id": "2138710", "name": "Sifu", "minutes": 39, "achUnlocked": 1, "achTotal": 61, "achPct": 1.6393442153930664}, {"id": "239140", "name": "Dying Light", "minutes": 37, "achUnlocked": 3, "achTotal": 78, "achPct": 3.846153736114502}, {"id": "2050650", "name": "Resident Evil 4", "minutes": 37, "achUnlocked": 0, "achTotal": 46, "achPct": 0}, {"id": "3594780", "name": "Blackjack 21: Blackjackist", "minutes": 37, "achUnlocked": 0, "achTotal": 0, "achPct": null}, {"id": "1237950", "name": "STAR WARS™ Battlefront™ II", "minutes": 36, "achUnlocked": 0, "achTotal": 43, "achPct": 0}, {"id": "518060", "name": "Chess Ultra", "minutes": 35, "achUnlocked": 7, "achTotal": 38, "achPct": 18.421052932739258}, {"id": "391540", "name": "Undertale", "minutes": 35, "achUnlocked": 0, "achTotal": 0, "achPct": null}, {"id": "601150", "name": "Devil May Cry 5", "minutes": 35, "achUnlocked": 1, "achTotal": 55, "achPct": 1.8181818723678589}, {"id": "1449690", "name": "The Walking Dead: The Telltale Definitive Series", "minutes": 35, "achUnlocked": 0, "achTotal": 23, "achPct": 0}, {"id": "1948980", "name": "Hero's Adventure: Road to Passion", "minutes": 35, "achUnlocked": 0, "achTotal": 170, "achPct": 0}, {"id": "2542120", "name": "NINJA GAIDEN: Ragebound", "minutes": 35, "achUnlocked": 4, "achTotal": 36, "achPct": 11.11111068725586}, {"id": "1121560", "name": "Atelier Ryza: Ever Darkness & the Secret Hideout", "minutes": 33, "achUnlocked": 0, "achTotal": 49, "achPct": 0}, {"id": "1222690", "name": "Dragon Age™ Inquisition", "minutes": 33, "achUnlocked": 0, "achTotal": 69, "achPct": 0}, {"id": "1227690", "name": "Severed Steel", "minutes": 33, "achUnlocked": 0, "achTotal": 57, "achPct": 0}, {"id": "1948280", "name": "Stacklands", "minutes": 33, "achUnlocked": 4, "achTotal": 36, "achPct": 11.11111068725586}, {"id": "1588550", "name": "Cairn", "minutes": 32, "achUnlocked": 1, "achTotal": 52, "achPct": 1.923076868057251}, {"id": "589360", "name": "Ni no Kuni™ II: Revenant Kingdom", "minutes": 31, "achUnlocked": 0, "achTotal": 63, "achPct": 0}, {"id": "1712350", "name": "Riven", "minutes": 31, "achUnlocked": 1, "achTotal": 34, "achPct": 2.941176414489746}, {"id": "372360", "name": "Tales of Symphonia", "minutes": 30, "achUnlocked": 0, "achTotal": 39, "achPct": 0}, {"id": "892970", "name": "Valheim", "minutes": 30, "achUnlocked": 0, "achTotal": 0, "achPct": null}, {"id": "1610440", "name": "Minds Beneath Us", "minutes": 29, "achUnlocked": 1, "achTotal": 21, "achPct": 4.761904716491699}, {"id": "821250", "name": "Flotsam", "minutes": 28, "achUnlocked": 1, "achTotal": 42, "achPct": 2.3809523582458496}, {"id": "1494810", "name": "Mortal Sin", "minutes": 28, "achUnlocked": 0, "achTotal": 47, "achPct": 0}, {"id": "2124120", "name": "SULFUR", "minutes": 28, "achUnlocked": 0, "achTotal": 68, "achPct": 0}, {"id": "349040", "name": "NARUTO SHIPPUDEN: Ultimate Ninja STORM 4", "minutes": 27, "achUnlocked": 2, "achTotal": 53, "achPct": 3.7735848426818848}, {"id": "1637730", "name": "Crystal Project", "minutes": 27, "achUnlocked": 0, "achTotal": 51, "achPct": 0}, {"id": "1684350", "name": "The Thaumaturge", "minutes": 25, "achUnlocked": 0, "achTotal": 57, "achPct": 0}, {"id": "1985960", "name": "Ogu and the Secret Forest", "minutes": 24, "achUnlocked": 2, "achTotal": 41, "achPct": 4.878048896789551}, {"id": "860950", "name": "Mark of the Ninja: Remastered", "minutes": 23, "achUnlocked": 2, "achTotal": 38, "achPct": 5.263157844543457}, {"id": "990080", "name": "Hogwarts Legacy", "minutes": 23, "achUnlocked": 0, "achTotal": 45, "achPct": 0}, {"id": "1583230", "name": "High On Life", "minutes": 23, "achUnlocked": 0, "achTotal": 44, "achPct": 0}, {"id": "1693980", "name": "Dead Space", "minutes": 22, "achUnlocked": 0, "achTotal": 47, "achPct": 0}, {"id": "874260", "name": "The Forgotten City", "minutes": 21, "achUnlocked": 0, "achTotal": 40, "achPct": 0}, {"id": "753640", "name": "Outer Wilds", "minutes": 20, "achUnlocked": 0, "achTotal": 31, "achPct": 0}, {"id": "1475810", "name": "Ghostwire: Tokyo", "minutes": 20, "achUnlocked": 0, "achTotal": 66, "achPct": 0}, {"id": "1637320", "name": "Dome Keeper", "minutes": 20, "achUnlocked": 0, "achTotal": 47, "achPct": 0}, {"id": "851850", "name": "DRAGON BALL Z: KAKAROT", "minutes": 19, "achUnlocked": 1, "achTotal": 42, "achPct": 2.3809523582458496}, {"id": "976730", "name": "Halo: The Master Chief Collection", "minutes": 19, "achUnlocked": 0, "achTotal": 700, "achPct": 0}, {"id": "1659040", "name": "HITMAN World of Assassination", "minutes": 18, "achUnlocked": 0, "achTotal": 83, "achPct": 0}, {"id": "2844850", "name": "FANTASIAN Neo Dimension", "minutes": 17, "achUnlocked": 0, "achTotal": 29, "achPct": 0}, {"id": "1902690", "name": "Fate/Samurai Remnant", "minutes": 16, "achUnlocked": 0, "achTotal": 82, "achPct": 0}, {"id": "457140", "name": "Oxygen Not Included", "minutes": 15, "achUnlocked": 0, "achTotal": 50, "achPct": 0}, {"id": "1173790", "name": "FINAL FANTASY III", "minutes": 15, "achUnlocked": 0, "achTotal": 31, "achPct": 0}, {"id": "2503770", "name": "House of Legacy", "minutes": 15, "achUnlocked": 0, "achTotal": 33, "achPct": 0}, {"id": "1057090", "name": "Ori and the Will of the Wisps", "minutes": 14, "achUnlocked": 0, "achTotal": 37, "achPct": 0}, {"id": "1238000", "name": "Mass Effect™: Andromeda Deluxe Edition", "minutes": 14, "achUnlocked": 0, "achTotal": 55, "achPct": 0}, {"id": "1932640", "name": "Suikoden I&II HD Remaster Gate Rune and Dunan Unification Wars", "minutes": 14, "achUnlocked": 0, "achTotal": 56, "achPct": 0}, {"id": "1578650", "name": "Citizen Sleeper", "minutes": 12, "achUnlocked": 0, "achTotal": 27, "achPct": 0}, {"id": "594570", "name": "Total War: WARHAMMER II", "minutes": 11, "achUnlocked": 0, "achTotal": 152, "achPct": 0}, {"id": "738540", "name": "Tales of Vesperia: Definitive Edition", "minutes": 11, "achUnlocked": 0, "achTotal": 53, "achPct": 0}, {"id": "775500", "name": "SCARLET NEXUS", "minutes": 11, "achUnlocked": 0, "achTotal": 53, "achPct": 0}, {"id": "1172380", "name": "STAR WARS Jedi: Fallen Order™ ", "minutes": 11, "achUnlocked": 0, "achTotal": 39, "achPct": 0}, {"id": "2501600", "name": "DICEOMANCER", "minutes": 11, "achUnlocked": 0, "achTotal": 34, "achPct": 0}, {"id": "423230", "name": "Furi", "minutes": 10, "achUnlocked": 0, "achTotal": 33, "achPct": 0}, {"id": "105600", "name": "Terraria", "minutes": 9, "achUnlocked": 0, "achTotal": 137, "achPct": 0}, {"id": "493340", "name": "Planet Coaster", "minutes": 9, "achUnlocked": 1, "achTotal": 32, "achPct": 3.125}, {"id": "1196590", "name": "Resident Evil Village", "minutes": 9, "achUnlocked": 0, "achTotal": 56, "achPct": 0}, {"id": "255710", "name": "Cities: Skylines", "minutes": 8, "achUnlocked": 0, "achTotal": 135, "achPct": 0}, {"id": "502500", "name": "ACE COMBAT™7: SKIES UNKNOWN", "minutes": 8, "achUnlocked": 0, "achTotal": 49, "achPct": 0}, {"id": "794260", "name": "Outward", "minutes": 8, "achUnlocked": 0, "achTotal": 72, "achPct": 0}, {"id": "1142710", "name": "Total War: WARHAMMER III", "minutes": 8, "achUnlocked": 0, "achTotal": 138, "achPct": 0}, {"id": "275850", "name": "No Man's Sky", "minutes": 7, "achUnlocked": 0, "achTotal": 27, "achPct": 0}, {"id": "1455840", "name": "Dorfromantik", "minutes": 6, "achUnlocked": 1, "achTotal": 85, "achPct": 1.1764706373214722}, {"id": "3837340", "name": "FINAL FANTASY VII", "minutes": 6, "achUnlocked": 0, "achTotal": 31, "achPct": 0}, {"id": "208650", "name": "Batman™: Arkham Knight", "minutes": 5, "achUnlocked": 0, "achTotal": 113, "achPct": 0}, {"id": "538680", "name": "The Legend of Heroes: Trails of Cold Steel", "minutes": 4, "achUnlocked": 0, "achTotal": 51, "achPct": 0}, {"id": "595520", "name": "FINAL FANTASY XII THE ZODIAC AGE", "minutes": 4, "achUnlocked": 0, "achTotal": 41, "achPct": 0}, {"id": "613100", "name": "House Flipper", "minutes": 4, "achUnlocked": 0, "achTotal": 96, "achPct": 0}, {"id": "1158310", "name": "Crusader Kings III", "minutes": 4, "achUnlocked": 0, "achTotal": 188, "achPct": 0}, {"id": "327030", "name": "Worms W.M.D", "minutes": 3, "achUnlocked": 0, "achTotal": 29, "achPct": 0}, {"id": "1244460", "name": "Jurassic World Evolution 2", "minutes": 3, "achUnlocked": 0, "achTotal": 54, "achPct": 0}, {"id": "1676840", "name": "For The King II", "minutes": 3, "achUnlocked": 0, "achTotal": 126, "achPct": 0}, {"id": "1735700", "name": "Back to the Dawn", "minutes": 3, "achUnlocked": 0, "achTotal": 46, "achPct": 0}, {"id": "2231380", "name": "Ghost Recon Breakpoint", "minutes": 3, "achUnlocked": 0, "achTotal": 50, "achPct": 0}, {"id": "870780", "name": "Control Ultimate Edition", "minutes": 2, "achUnlocked": 0, "achTotal": 67, "achPct": 0}, {"id": "1002300", "name": "Fear & Hunger", "minutes": 2, "achUnlocked": 0, "achTotal": 1, "achPct": 0}, {"id": "1129580", "name": "Medieval Dynasty", "minutes": 2, "achUnlocked": 0, "achTotal": 44, "achPct": 0}, {"id": "1527950", "name": "Wartales", "minutes": 2, "achUnlocked": 0, "achTotal": 235, "achPct": 0}, {"id": "2559270", "name": "Gym Simulator 24", "minutes": 2, "achUnlocked": 1, "achTotal": 15, "achPct": 6.666666507720947}, {"id": "3081410", "name": "Battlefield™ 6 Open Beta", "minutes": 2, "achUnlocked": 0, "achTotal": 0, "achPct": null}, {"id": "2600", "name": "Vampire: The Masquerade - Bloodlines", "minutes": 1, "achUnlocked": 0, "achTotal": 0, "achPct": null}, {"id": "6020", "name": "STAR WARS™ Jedi Knight: Jedi Academy™", "minutes": 1, "achUnlocked": 0, "achTotal": 0, "achPct": null}, {"id": "1569580", "name": "Blue Prince", "minutes": 1, "achUnlocked": 0, "achTotal": 16, "achPct": 0}, {"id": "1677350", "name": "EA SPORTS™ PGA TOUR™", "minutes": 1, "achUnlocked": 0, "achTotal": 18, "achPct": 0}, {"id": "620", "name": "Portal 2", "minutes": 0, "achUnlocked": 0, "achTotal": 51, "achPct": 0}, {"id": "6030", "name": "STAR WARS™ Jedi Knight II: Jedi Outcast™", "minutes": 0, "achUnlocked": 0, "achTotal": 0, "achPct": null}, {"id": "39140", "name": "FINAL FANTASY VII (2013)", "minutes": 0, "achUnlocked": 0, "achTotal": 36, "achPct": 0}, {"id": "49520", "name": "Borderlands 2", "minutes": 0, "achUnlocked": 0, "achTotal": 75, "achPct": 0}, {"id": "63610", "name": "Riven (1997)", "minutes": 0, "achUnlocked": 0, "achTotal": 0, "achPct": null}, {"id": "214510", "name": "LEGO® The Lord of the Rings™", "minutes": 0, "achUnlocked": 0, "achTotal": 48, "achPct": 0}, {"id": "230230", "name": "Divinity: Original Sin (Classic)", "minutes": 0, "achUnlocked": 0, "achTotal": 63, "achPct": 0}, {"id": "239120", "name": "Final Fantasy III (3D Remake)", "minutes": 0, "achUnlocked": 0, "achTotal": 18, "achPct": 0}, {"id": "268500", "name": "XCOM 2", "minutes": 0, "achUnlocked": 0, "achTotal": 88, "achPct": 0}, {"id": "281990", "name": "Stellaris", "minutes": 0, "achUnlocked": 0, "achTotal": 211, "achPct": 0}, {"id": "289070", "name": "Sid Meier's Civilization VI", "minutes": 0, "achUnlocked": 0, "achTotal": 320, "achPct": 0}, {"id": "346010", "name": "Besiege", "minutes": 0, "achUnlocked": 0, "achTotal": 50, "achPct": 0}, {"id": "346110", "name": "ARK: Survival Evolved", "minutes": 0, "achUnlocked": 0, "achTotal": 32, "achPct": 0}, {"id": "373420", "name": "Divinity: Original Sin Enhanced Edition", "minutes": 0, "achUnlocked": 0, "achTotal": 54, "achPct": 0}, {"id": "377840", "name": "FINAL FANTASY IX", "minutes": 0, "achUnlocked": 0, "achTotal": 85, "achPct": 0}, {"id": "407530", "name": "ARK: Survival Of The Fittest", "minutes": 0, "achUnlocked": 0, "achTotal": 0, "achPct": null}, {"id": "412830", "name": "STEINS;GATE", "minutes": 0, "achUnlocked": 0, "achTotal": 42, "achPct": 0}, {"id": "418370", "name": "Resident Evil 7 Biohazard", "minutes": 0, "achUnlocked": 0, "achTotal": 58, "achPct": 0}, {"id": "582660", "name": "Black Desert", "minutes": 0, "achUnlocked": 0, "achTotal": 0, "achPct": null}, {"id": "587110", "name": "Ys: Memories of Celceta", "minutes": 0, "achUnlocked": 0, "achTotal": 52, "achPct": 0}, {"id": "893180", "name": "Catherine Classic", "minutes": 0, "achUnlocked": 0, "achTotal": 50, "achPct": 0}, {"id": "952060", "name": "Resident Evil 3", "minutes": 0, "achUnlocked": 0, "achTotal": 32, "achPct": 0}, {"id": "952070", "name": "RESIDENT EVIL RESISTANCE", "minutes": 0, "achUnlocked": 0, "achTotal": 51, "achPct": 0}, {"id": "1026680", "name": "FINAL FANTASY VIII - REMASTERED", "minutes": 0, "achUnlocked": 0, "achTotal": 34, "achPct": 0}, {"id": "1113000", "name": "Persona 4 Golden", "minutes": 0, "achUnlocked": 0, "achTotal": 50, "achPct": 0}, {"id": "1173810", "name": "FINAL FANTASY V", "minutes": 0, "achUnlocked": 0, "achTotal": 39, "achPct": 0}, {"id": "1184370", "name": "Pathfinder: Wrath of the Righteous - Enhanced Edition", "minutes": 0, "achUnlocked": 0, "achTotal": 153, "achPct": 0}, {"id": "1236300", "name": "Resident Evil Re:Verse", "minutes": 0, "achUnlocked": 0, "achTotal": 12, "achPct": 0}, {"id": "1237970", "name": "Titanfall® 2", "minutes": 0, "achUnlocked": 0, "achTotal": 50, "achPct": 0}, {"id": "1562430", "name": "DREDGE", "minutes": 0, "achUnlocked": 15, "achTotal": 60, "achPct": 25}, {"id": "1687950", "name": "Persona 5 Royal", "minutes": 0, "achUnlocked": 0, "achTotal": 53, "achPct": 0}, {"id": "1796790", "name": "Chef RPG", "minutes": 0, "achUnlocked": 0, "achTotal": 30, "achPct": 0}, {"id": "1850570", "name": "DEATH STRANDING DIRECTOR'S CUT", "minutes": 0, "achUnlocked": 0, "achTotal": 63, "achPct": 0}, {"id": "1876890", "name": "Wandering Sword", "minutes": 0, "achUnlocked": 0, "achTotal": 110, "achPct": 0}, {"id": "1920490", "name": "The Outer Worlds: Spacer's Choice Edition", "minutes": 0, "achUnlocked": 0, "achTotal": 68, "achPct": 0}, {"id": "2175540", "name": "DRAGON QUEST MONSTERS: The Dark Prince", "minutes": 0, "achUnlocked": 0, "achTotal": 15, "achPct": 0}, {"id": "2427520", "name": "ARC Raiders Playtest", "minutes": 0, "achUnlocked": 0, "achTotal": 0, "achPct": null}, {"id": "3035570", "name": "Assassin's Creed Mirage", "minutes": 0, "achUnlocked": 0, "achTotal": 61, "achPct": 0}, {"id": "3240220", "name": "Grand Theft Auto V Enhanced", "minutes": 0, "achUnlocked": 0, "achTotal": 77, "achPct": 0}];</script>
-<script type="text/babel" data-presets="react">
-
-const { useState, useRef, useEffect } = React;
+<script>
+const {
+  useState,
+  useRef,
+  useEffect
+} = React;
 
 // --- icônes inline (SVG simples, pas de lib externe) ---
-const Ico = ({d, size=16, sw=2}) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor"
-       strokeWidth={sw} strokeLinecap="round" strokeLinejoin="round" style={{flexShrink:0}}>
-    {d}
-  </svg>
-);
-const Upload = (p)=> <Ico {...p} d={<><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></>}/>;
-const Shuffle=(p)=> <Ico {...p} d={<><path d="M16 3h5v5"/><path d="M4 20 21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></>}/>;
-const Check=(p)=> <Ico {...p} d={<polyline points="20 6 9 17 4 12"/>}/>;
-const X=(p)=> <Ico {...p} d={<><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></>}/>;
-const Clock=(p)=> <Ico {...p} d={<><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></>}/>;
-const Flame=(p)=> <Ico {...p} d={<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>}/>;
-const Trophy=(p)=> <Ico {...p} d={<><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></>}/>;
-const Library=(p)=> <Ico {...p} d={<><path d="m16 6 4 14"/><path d="M12 6v14"/><path d="M8 8v12"/><path d="M4 4v16"/></>}/>;
-const Sparkles=(p)=> <Ico {...p} d={<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>}/>;
-const Pause=(p)=> <Ico {...p} d={<><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></>}/>;
-const Coins=(p)=> <Ico {...p} d={<><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></>}/>;
-const Play=(p)=> <Ico {...p} d={<polygon points="6 3 20 12 6 21 6 3"/>}/>;
-const Monitor=(p)=> <Ico {...p} d={<><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></>}/>;
-const Gamepad2=(p)=> <Ico {...p} d={<><line x1="6" y1="11" x2="10" y2="11"/><line x1="8" y1="9" x2="8" y2="13"/><line x1="15" y1="12" x2="15.01" y2="12"/><line x1="18" y1="10" x2="18.01" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.544-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/></>}/>;
-const Download=(p)=> <Ico {...p} d={<><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></>}/>;
-
-const STATUS = { UNSORTED:"unsorted", SHORTLIST:"shortlist", MUSTFINISH:"mustfinish", SOMEDAY:"someday", NEVER:"never", PLAYING:"playing", DONE:"done", DROPPED:"dropped" };
-const PLATFORM = { PC:"pc", DECK:"deck", BOTH:"both" };
+const Ico = ({
+  d,
+  size = 16,
+  sw = 2
+}) => /*#__PURE__*/React.createElement("svg", {
+  width: size,
+  height: size,
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: sw,
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+  style: {
+    flexShrink: 0
+  }
+}, d);
+const Upload = p => /*#__PURE__*/React.createElement(Ico, {
+  ...p,
+  d: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("path", {
+    d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+  }), /*#__PURE__*/React.createElement("polyline", {
+    points: "17 8 12 3 7 8"
+  }), /*#__PURE__*/React.createElement("line", {
+    x1: "12",
+    y1: "3",
+    x2: "12",
+    y2: "15"
+  }))
+});
+const Shuffle = p => /*#__PURE__*/React.createElement(Ico, {
+  ...p,
+  d: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("path", {
+    d: "M16 3h5v5"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M4 20 21 3"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M21 16v5h-5"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M15 15l6 6"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M4 4l5 5"
+  }))
+});
+const Check = p => /*#__PURE__*/React.createElement(Ico, {
+  ...p,
+  d: /*#__PURE__*/React.createElement("polyline", {
+    points: "20 6 9 17 4 12"
+  })
+});
+const X = p => /*#__PURE__*/React.createElement(Ico, {
+  ...p,
+  d: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("line", {
+    x1: "18",
+    y1: "6",
+    x2: "6",
+    y2: "18"
+  }), /*#__PURE__*/React.createElement("line", {
+    x1: "6",
+    y1: "6",
+    x2: "18",
+    y2: "18"
+  }))
+});
+const Clock = p => /*#__PURE__*/React.createElement(Ico, {
+  ...p,
+  d: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("circle", {
+    cx: "12",
+    cy: "12",
+    r: "10"
+  }), /*#__PURE__*/React.createElement("polyline", {
+    points: "12 6 12 12 16 14"
+  }))
+});
+const Flame = p => /*#__PURE__*/React.createElement(Ico, {
+  ...p,
+  d: /*#__PURE__*/React.createElement("path", {
+    d: "M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"
+  })
+});
+const Trophy = p => /*#__PURE__*/React.createElement(Ico, {
+  ...p,
+  d: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("path", {
+    d: "M6 9H4.5a2.5 2.5 0 0 1 0-5H6"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M18 9h1.5a2.5 2.5 0 0 0 0-5H18"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M4 22h16"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M18 2H6v7a6 6 0 0 0 12 0V2Z"
+  }))
+});
+const Library = p => /*#__PURE__*/React.createElement(Ico, {
+  ...p,
+  d: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("path", {
+    d: "m16 6 4 14"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M12 6v14"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M8 8v12"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M4 4v16"
+  }))
+});
+const Sparkles = p => /*#__PURE__*/React.createElement(Ico, {
+  ...p,
+  d: /*#__PURE__*/React.createElement("path", {
+    d: "M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"
+  })
+});
+const Pause = p => /*#__PURE__*/React.createElement(Ico, {
+  ...p,
+  d: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("rect", {
+    x: "6",
+    y: "4",
+    width: "4",
+    height: "16"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "14",
+    y: "4",
+    width: "4",
+    height: "16"
+  }))
+});
+const Coins = p => /*#__PURE__*/React.createElement(Ico, {
+  ...p,
+  d: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("circle", {
+    cx: "8",
+    cy: "8",
+    r: "6"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M18.09 10.37A6 6 0 1 1 10.34 18"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M7 6h1v4"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "m16.71 13.88.7.71-2.82 2.82"
+  }))
+});
+const Play = p => /*#__PURE__*/React.createElement(Ico, {
+  ...p,
+  d: /*#__PURE__*/React.createElement("polygon", {
+    points: "6 3 20 12 6 21 6 3"
+  })
+});
+const Monitor = p => /*#__PURE__*/React.createElement(Ico, {
+  ...p,
+  d: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("rect", {
+    x: "2",
+    y: "3",
+    width: "20",
+    height: "14",
+    rx: "2"
+  }), /*#__PURE__*/React.createElement("line", {
+    x1: "8",
+    y1: "21",
+    x2: "16",
+    y2: "21"
+  }), /*#__PURE__*/React.createElement("line", {
+    x1: "12",
+    y1: "17",
+    x2: "12",
+    y2: "21"
+  }))
+});
+const Gamepad2 = p => /*#__PURE__*/React.createElement(Ico, {
+  ...p,
+  d: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("line", {
+    x1: "6",
+    y1: "11",
+    x2: "10",
+    y2: "11"
+  }), /*#__PURE__*/React.createElement("line", {
+    x1: "8",
+    y1: "9",
+    x2: "8",
+    y2: "13"
+  }), /*#__PURE__*/React.createElement("line", {
+    x1: "15",
+    y1: "12",
+    x2: "15.01",
+    y2: "12"
+  }), /*#__PURE__*/React.createElement("line", {
+    x1: "18",
+    y1: "10",
+    x2: "18.01",
+    y2: "10"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.544-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"
+  }))
+});
+const Download = p => /*#__PURE__*/React.createElement(Ico, {
+  ...p,
+  d: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("path", {
+    d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+  }), /*#__PURE__*/React.createElement("polyline", {
+    points: "7 10 12 15 17 10"
+  }), /*#__PURE__*/React.createElement("line", {
+    x1: "12",
+    y1: "15",
+    x2: "12",
+    y2: "3"
+  }))
+});
+const STATUS = {
+  UNSORTED: "unsorted",
+  SHORTLIST: "shortlist",
+  MUSTFINISH: "mustfinish",
+  SOMEDAY: "someday",
+  NEVER: "never",
+  PLAYING: "playing",
+  DONE: "done",
+  DROPPED: "dropped"
+};
+const PLATFORM = {
+  PC: "pc",
+  DECK: "deck",
+  BOTH: "both"
+};
 const MAX_SLOTS = 3;
 const SAVE_KEY = "backlogBusterState_v1";
-
-const fmtHours = (min) => { const h = Math.floor(min/60); return h>0 ? h+"h" : min+"m"; };
-const achLabel = (g) => (g.achTotal>0 ? g.achUnlocked+"/"+g.achTotal+" \u00b7 "+Math.round(g.achPct)+"%" : null);
-const achColor = (g) => { if(g.achTotal===0) return "#6e7681"; if(g.achPct>=100) return "#7ee787"; if(g.achPct>=50) return "#ffa657"; return "#8b949e"; };
-const canRunOn = (g, plat) => g.platform===plat || g.platform===PLATFORM.BOTH;
-const syncMsg = (s) => ({idle:"",loading:"Chargement\u2026",saving:"Sauvegarde\u2026",saved:"Synchronis\u00e9",error:"Erreur de synchro"}[s]||"");
-
-const mkGame = (g) => ({
-  id:String(g.id), name:g.name??"Sans titre", minutes:Math.round(g.minutes??0),
-  status:STATUS.UNSORTED, platform:null, runningOn:null,
-  achUnlocked:g.achUnlocked??0, achTotal:g.achTotal??0, achPct:g.achPct??null,
+const fmtHours = min => {
+  const h = Math.floor(min / 60);
+  return h > 0 ? h + "h" : min + "m";
+};
+const achLabel = g => g.achTotal > 0 ? g.achUnlocked + "/" + g.achTotal + " \u00b7 " + Math.round(g.achPct) + "%" : null;
+const achColor = g => {
+  if (g.achTotal === 0) return "#6e7681";
+  if (g.achPct >= 100) return "#7ee787";
+  if (g.achPct >= 50) return "#ffa657";
+  return "#8b949e";
+};
+const canRunOn = (g, plat) => g.platform === plat || g.platform === PLATFORM.BOTH;
+const syncMsg = s => ({
+  idle: "",
+  loading: "Chargement\u2026",
+  saving: "Sauvegarde\u2026",
+  saved: "Synchronis\u00e9",
+  error: "Erreur de synchro"
+})[s] || "";
+const mkGame = g => ({
+  id: String(g.id),
+  name: g.name ?? "Sans titre",
+  minutes: Math.round(g.minutes ?? 0),
+  status: STATUS.UNSORTED,
+  platform: null,
+  runningOn: null,
+  achUnlocked: g.achUnlocked ?? 0,
+  achTotal: g.achTotal ?? 0,
+  achPct: g.achPct ?? null
 });
-
-function loadInitial(){
-  try { const saved = localStorage.getItem(SAVE_KEY); if(saved){ const arr=JSON.parse(saved); if(Array.isArray(arr)&&arr.length) return arr; } } catch(e){}
+function loadInitial() {
+  try {
+    const saved = localStorage.getItem(SAVE_KEY);
+    if (saved) {
+      const arr = JSON.parse(saved);
+      if (Array.isArray(arr) && arr.length) return arr;
+    }
+  } catch (e) {}
   return STEAM_LIBRARY.map(mkGame);
 }
 
 // Extrait jeux + succès depuis le HTML de la page Steam (format React actuel)
-function parseSteamHTML(text){
-  let t=text;
-  for(let i=0;i<6;i++){ const n=t.split("\\\\").join("\\").split('\\"').join('"'); if(n===t)break; t=n; }
+function parseSteamHTML(text) {
+  let t = text;
+  for (let i = 0; i < 6; i++) {
+    const n = t.split("\\\\").join("\\").split('\\"').join('"');
+    if (n === t) break;
+    t = n;
+  }
   // jeux : objets contenant playtime_forever
-  const games={};
-  const gre=/\{[^{}]*?"playtime_forever"[^{}]*?\}/g; let m;
-  while((m=gre.exec(t))){
-    const c=m[0];
-    const a=c.match(/"appid"\s*:\s*(\d+)/); const p=c.match(/"playtime_forever"\s*:\s*(\d+)/);
-    const n=c.match(/"name"\s*:\s*"((?:[^"\\]|\\.)*)"/);
-    if(a&&p){ let name=n?n[1]:a[1]; try{name=JSON.parse('"'+name+'"');}catch(e){} games[a[1]]={id:a[1],name:name,minutes:parseInt(p[1],10)}; }
+  const games = {};
+  const gre = /\{[^{}]*?"playtime_forever"[^{}]*?\}/g;
+  let m;
+  while (m = gre.exec(t)) {
+    const c = m[0];
+    const a = c.match(/"appid"\s*:\s*(\d+)/);
+    const p = c.match(/"playtime_forever"\s*:\s*(\d+)/);
+    const n = c.match(/"name"\s*:\s*"((?:[^"\\]|\\.)*)"/);
+    if (a && p) {
+      let name = n ? n[1] : a[1];
+      try {
+        name = JSON.parse('"' + name + '"');
+      } catch (e) {}
+      games[a[1]] = {
+        id: a[1],
+        name: name,
+        minutes: parseInt(p[1], 10)
+      };
+    }
   }
   // succès : objets appid+unlocked+total+percentage
-  const are=/\{"appid":\d+,"unlocked":\d+,"total":\d+,"percentage":\d+[^{}]*\}/g;
-  while((m=are.exec(t))){
-    try{ const o=JSON.parse(m[0]); const g=games[String(o.appid)];
-      if(g){ if(o.total>0){g.achUnlocked=o.unlocked;g.achTotal=o.total;g.achPct=o.percentage;} else {g.achUnlocked=0;g.achTotal=0;g.achPct=null;} } }catch(e){}
+  const are = /\{"appid":\d+,"unlocked":\d+,"total":\d+,"percentage":\d+[^{}]*\}/g;
+  while (m = are.exec(t)) {
+    try {
+      const o = JSON.parse(m[0]);
+      const g = games[String(o.appid)];
+      if (g) {
+        if (o.total > 0) {
+          g.achUnlocked = o.unlocked;
+          g.achTotal = o.total;
+          g.achPct = o.percentage;
+        } else {
+          g.achUnlocked = 0;
+          g.achTotal = 0;
+          g.achPct = null;
+        }
+      }
+    } catch (e) {}
   }
-  const arr=Object.values(games);
-  return arr.length?arr:null;
+  const arr = Object.values(games);
+  return arr.length ? arr : null;
 }
-
-function AuthPanel({onClose}){
-  const [mode,setMode]=useState("login"); // login | signup
-  const [email,setEmail]=useState("");
-  const [pw,setPw]=useState("");
-  const [msg,setMsg]=useState(null);
-  const [busy,setBusy]=useState(false);
-
-  const submit=async()=>{
-    setMsg(null); setBusy(true);
-    if(mode==="signup"){
-      const { error } = await sb.auth.signUp({ email, password:pw, options:{ emailRedirectTo: window.location.origin } });
+function AuthPanel({
+  onClose
+}) {
+  const [mode, setMode] = useState("login"); // login | signup
+  const [email, setEmail] = useState("");
+  const [pw, setPw] = useState("");
+  const [msg, setMsg] = useState(null);
+  const [busy, setBusy] = useState(false);
+  const submit = async () => {
+    setMsg(null);
+    setBusy(true);
+    if (mode === "signup") {
+      const {
+        error
+      } = await sb.auth.signUp({
+        email,
+        password: pw,
+        options: {
+          emailRedirectTo: window.location.origin
+        }
+      });
       setBusy(false);
-      if(error){ setMsg({t:"err",m:error.message}); return; }
-      setMsg({t:"ok",m:"Compte cr\u00e9\u00e9 ! V\u00e9rifie ta bo\u00eete mail et clique le lien de confirmation, puis reviens te connecter."});
+      if (error) {
+        setMsg({
+          t: "err",
+          m: error.message
+        });
+        return;
+      }
+      setMsg({
+        t: "ok",
+        m: "Compte cr\u00e9\u00e9 ! V\u00e9rifie ta bo\u00eete mail et clique le lien de confirmation, puis reviens te connecter."
+      });
     } else {
-      const { error } = await sb.auth.signInWithPassword({ email, password:pw });
+      const {
+        error
+      } = await sb.auth.signInWithPassword({
+        email,
+        password: pw
+      });
       setBusy(false);
-      if(error){ setMsg({t:"err",m:error.message==="Invalid login credentials"?"Email ou mot de passe incorrect (as-tu confirm\u00e9 ton email ?).":error.message}); return; }
+      if (error) {
+        setMsg({
+          t: "err",
+          m: error.message === "Invalid login credentials" ? "Email ou mot de passe incorrect (as-tu confirm\u00e9 ton email ?)." : error.message
+        });
+        return;
+      }
       onClose();
     }
   };
-
-  return (
-    <div style={S.modalBg} onClick={onClose}>
-      <div style={S.modal} onClick={(e)=>e.stopPropagation()}>
-        <div style={S.modalTitle}>{mode==="login"?"Connexion":"Cr\u00e9er un compte"}</div>
-        <p style={S.modalSub}>Synchronise ton backlog entre tous tes appareils.</p>
-        <input style={S.field} type="email" placeholder="Adresse email" value={email} onChange={e=>setEmail(e.target.value)}/>
-        <input style={S.field} type="password" placeholder="Mot de passe (min. 6 caract\u00e8res)" value={pw} onChange={e=>setPw(e.target.value)}/>
-        {msg && <div style={msg.t==="err"?S.msgErr:S.msgOk}>{msg.m}</div>}
-        <button style={S.authGo} disabled={busy||!email||pw.length<6} onClick={submit}>
-          {busy?"\u2026":(mode==="login"?"Se connecter":"Cr\u00e9er mon compte")}
-        </button>
-        <button style={S.authSwitch} onClick={()=>{setMode(mode==="login"?"signup":"login");setMsg(null);}}>
-          {mode==="login"?"Pas encore de compte ? Cr\u00e9er un compte":"D\u00e9j\u00e0 un compte ? Se connecter"}
-        </button>
-        <button style={S.authClose} onClick={onClose}>Plus tard (rester en local)</button>
-      </div>
-    </div>
-  );
+  return /*#__PURE__*/React.createElement("div", {
+    style: S.modalBg,
+    onClick: onClose
+  }, /*#__PURE__*/React.createElement("div", {
+    style: S.modal,
+    onClick: e => e.stopPropagation()
+  }, /*#__PURE__*/React.createElement("div", {
+    style: S.modalTitle
+  }, mode === "login" ? "Connexion" : "Cr\u00e9er un compte"), /*#__PURE__*/React.createElement("p", {
+    style: S.modalSub
+  }, "Synchronise ton backlog entre tous tes appareils."), /*#__PURE__*/React.createElement("input", {
+    style: S.field,
+    type: "email",
+    placeholder: "Adresse email",
+    value: email,
+    onChange: e => setEmail(e.target.value)
+  }), /*#__PURE__*/React.createElement("input", {
+    style: S.field,
+    type: "password",
+    placeholder: "Mot de passe (min. 6 caract\\u00e8res)",
+    value: pw,
+    onChange: e => setPw(e.target.value)
+  }), msg && /*#__PURE__*/React.createElement("div", {
+    style: msg.t === "err" ? S.msgErr : S.msgOk
+  }, msg.m), /*#__PURE__*/React.createElement("button", {
+    style: S.authGo,
+    disabled: busy || !email || pw.length < 6,
+    onClick: submit
+  }, busy ? "\u2026" : mode === "login" ? "Se connecter" : "Cr\u00e9er mon compte"), /*#__PURE__*/React.createElement("button", {
+    style: S.authSwitch,
+    onClick: () => {
+      setMode(mode === "login" ? "signup" : "login");
+      setMsg(null);
+    }
+  }, mode === "login" ? "Pas encore de compte ? Cr\u00e9er un compte" : "D\u00e9j\u00e0 un compte ? Se connecter"), /*#__PURE__*/React.createElement("button", {
+    style: S.authClose,
+    onClick: onClose
+  }, "Plus tard (rester en local)")));
 }
-
-function App(){
-  const [games,setGames] = useState(loadInitial);
-  const [view,setView] = useState("board");
-  const [pick,setPick] = useState(null);
-  const [pickFilter,setPickFilter] = useState(PLATFORM.BOTH);
-  const [search,setSearch] = useState("");
-  const [sortBy,setSortBy] = useState("name");
-  const [platformPrompt,setPlatformPrompt] = useState(null);
+function App() {
+  const [games, setGames] = useState(loadInitial);
+  const [view, setView] = useState("board");
+  const [pick, setPick] = useState(null);
+  const [pickFilter, setPickFilter] = useState(PLATFORM.BOTH);
+  const [search, setSearch] = useState("");
+  const [sortBy, setSortBy] = useState("name");
+  const [platformPrompt, setPlatformPrompt] = useState(null);
 
   // --- auth & synchro cloud ---
-  const [session,setSession] = useState(null);      // session Supabase (null = pas connecté)
-  const [authOpen,setAuthOpen] = useState(false);    // panneau de connexion visible ?
-  const [syncState,setSyncState] = useState("idle"); // idle | loading | saving | saved | error
-  const cloudReady = useRef(false);                  // évite de sauver pendant le chargement initial
+  const [session, setSession] = useState(null); // session Supabase (null = pas connecté)
+  const [authOpen, setAuthOpen] = useState(false); // panneau de connexion visible ?
+  const [syncState, setSyncState] = useState("idle"); // idle | loading | saving | saved | error
+  const cloudReady = useRef(false); // évite de sauver pendant le chargement initial
 
   // au démarrage : récupère la session existante + écoute les changements
-  useEffect(()=>{
-    sb.auth.getSession().then(({data})=>setSession(data.session));
-    const { data:sub } = sb.auth.onAuthStateChange((_e,s)=>setSession(s));
-    return ()=>sub.subscription.unsubscribe();
-  },[]);
+  useEffect(() => {
+    sb.auth.getSession().then(({
+      data
+    }) => setSession(data.session));
+    const {
+      data: sub
+    } = sb.auth.onAuthStateChange((_e, s) => setSession(s));
+    return () => sub.subscription.unsubscribe();
+  }, []);
 
   // quand une session devient active : charge le backlog cloud (ou y pousse le local si cloud vide)
-  useEffect(()=>{
-    if(!session){ cloudReady.current=false; return; }
-    let annule=false;
-    (async()=>{
+  useEffect(() => {
+    if (!session) {
+      cloudReady.current = false;
+      return;
+    }
+    let annule = false;
+    (async () => {
       setSyncState("loading");
-      const { data, error } = await sb.from("backlogs").select("data").eq("user_id",session.user.id).maybeSingle();
-      if(annule) return;
-      if(error){ setSyncState("error"); return; }
-      if(data && Array.isArray(data.data) && data.data.length){
-        setGames(data.data);            // le cloud a des données -> il prime
-      } else {
-        await sb.from("backlogs").upsert({ user_id:session.user.id, data:games, updated_at:new Date().toISOString() });
+      const {
+        data,
+        error
+      } = await sb.from("backlogs").select("data").eq("user_id", session.user.id).maybeSingle();
+      if (annule) return;
+      if (error) {
+        setSyncState("error");
+        return;
       }
-      cloudReady.current=true;
+      if (data && Array.isArray(data.data) && data.data.length) {
+        setGames(data.data); // le cloud a des données -> il prime
+      } else {
+        await sb.from("backlogs").upsert({
+          user_id: session.user.id,
+          data: games,
+          updated_at: new Date().toISOString()
+        });
+      }
+      cloudReady.current = true;
       setSyncState("saved");
     })();
-    return ()=>{ annule=true; };
-  },[session]);
+    return () => {
+      annule = true;
+    };
+  }, [session]);
 
   // persistance : toujours en local ; et dans le cloud si connecté
-  useEffect(()=>{
-    try{ localStorage.setItem(SAVE_KEY, JSON.stringify(games)); }catch(e){}
-    if(session && cloudReady.current){
+  useEffect(() => {
+    try {
+      localStorage.setItem(SAVE_KEY, JSON.stringify(games));
+    } catch (e) {}
+    if (session && cloudReady.current) {
       setSyncState("saving");
-      const t=setTimeout(async()=>{
-        const { error } = await sb.from("backlogs").upsert({ user_id:session.user.id, data:games, updated_at:new Date().toISOString() });
-        setSyncState(error?"error":"saved");
+      const t = setTimeout(async () => {
+        const {
+          error
+        } = await sb.from("backlogs").upsert({
+          user_id: session.user.id,
+          data: games,
+          updated_at: new Date().toISOString()
+        });
+        setSyncState(error ? "error" : "saved");
       }, 800); // petit délai pour regrouper les modifs rapprochées
-      return ()=>clearTimeout(t);
+      return () => clearTimeout(t);
     }
   }, [games, session]);
 
   // si rien n'est encore trié, démarre sur le tri
-  useEffect(()=>{ if(games.some(g=>g.status===STATUS.UNSORTED) && games.every(g=>g.status===STATUS.UNSORTED)) setView("triage"); }, []);
-
-  const by=(s)=>games.filter(g=>g.status===s);
-  const unsorted=by(STATUS.UNSORTED), shortlist=by(STATUS.SHORTLIST), playing=by(STATUS.PLAYING);
-  const mustfinish=by(STATUS.MUSTFINISH);
-  const done=by(STATUS.DONE), dropped=by(STATUS.DROPPED), someday=by(STATUS.SOMEDAY);
-  const untouched=games.filter(g=>g.minutes<30);
-  const perfected=games.filter(g=>g.achTotal>0 && g.achPct>=100);
-  const playingPC=playing.filter(g=>g.runningOn===PLATFORM.PC);
-  const playingDeck=playing.filter(g=>g.runningOn===PLATFORM.DECK);
+  useEffect(() => {
+    if (games.some(g => g.status === STATUS.UNSORTED) && games.every(g => g.status === STATUS.UNSORTED)) setView("triage");
+  }, []);
+  const by = s => games.filter(g => g.status === s);
+  const unsorted = by(STATUS.UNSORTED),
+    shortlist = by(STATUS.SHORTLIST),
+    playing = by(STATUS.PLAYING);
+  const mustfinish = by(STATUS.MUSTFINISH);
+  const done = by(STATUS.DONE),
+    dropped = by(STATUS.DROPPED),
+    someday = by(STATUS.SOMEDAY);
+  const untouched = games.filter(g => g.minutes < 30);
+  const perfected = games.filter(g => g.achTotal > 0 && g.achPct >= 100);
+  const playingPC = playing.filter(g => g.runningOn === PLATFORM.PC);
+  const playingDeck = playing.filter(g => g.runningOn === PLATFORM.DECK);
 
   // recherche + tri appliqués à l'affichage des colonnes
-  const arrange=(list)=>{
-    const q=search.trim().toLowerCase();
-    let r = q ? list.filter(g=>g.name.toLowerCase().includes(q)) : list.slice();
-    if(sortBy==="name") r.sort((a,b)=>a.name.localeCompare(b.name));
-    else if(sortBy==="playtime") r.sort((a,b)=>b.minutes-a.minutes);
-    else if(sortBy==="ach") r.sort((a,b)=>(b.achPct??-1)-(a.achPct??-1));
+  const arrange = list => {
+    const q = search.trim().toLowerCase();
+    let r = q ? list.filter(g => g.name.toLowerCase().includes(q)) : list.slice();
+    if (sortBy === "name") r.sort((a, b) => a.name.localeCompare(b.name));else if (sortBy === "playtime") r.sort((a, b) => b.minutes - a.minutes);else if (sortBy === "ach") r.sort((a, b) => (b.achPct ?? -1) - (a.achPct ?? -1));
     return r;
   };
-
-  const update=(id,patch)=>setGames(gs=>gs.map(g=>g.id===id?{...g,...patch}:g));
-
-  const triageGame=unsorted[0]??null;
-  const triageQuick=(status)=>triageGame&&update(triageGame.id,{status});
-  const triageShortlist=()=>triageGame&&setPlatformPrompt({game:triageGame,target:STATUS.SHORTLIST});
-  const triageMust=()=>triageGame&&setPlatformPrompt({game:triageGame,target:STATUS.MUSTFINISH});
-  const confirmPlatform=(platform)=>{ if(!platformPrompt)return; update(platformPrompt.game.id,{status:platformPrompt.target,platform}); setPlatformPrompt(null); };
-
-  const pickPool=[...shortlist,...mustfinish];
-  const eligible=pickPool.filter(g=>pickFilter===PLATFORM.BOTH?true:canRunOn(g,pickFilter));
-  const doPick=()=>{ if(!eligible.length)return; setPick(eligible[Math.floor(Math.random()*eligible.length)]); };
-  const launch=(game,plat)=>{ const count=plat===PLATFORM.PC?playingPC.length:playingDeck.length; if(count>=MAX_SLOTS)return; update(game.id,{status:STATUS.PLAYING,runningOn:plat}); setPick(null); };
-  const pcFull=playingPC.length>=MAX_SLOTS, deckFull=playingDeck.length>=MAX_SLOTS;
-
-  const resetAll=()=>{ if(confirm("Recommencer le tri \u00e0 z\u00e9ro ? Tes choix actuels seront effac\u00e9s.")){ setGames(STEAM_LIBRARY.map(mkGame)); setView("triage"); setPick(null); } };
-  const exportSave=()=>{ const blob=new Blob([JSON.stringify(games,null,2)],{type:"application/json"}); const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="mon-backlog-sauvegarde.json"; a.click(); };
-  const importRef=useRef();
-  const importSave=(e)=>{
-    const f=e.target.files&&e.target.files[0]; if(!f)return;
-    const r=new FileReader();
-    r.onload=()=>{
-      try{
-        const arr=JSON.parse(r.result);
-        if(!Array.isArray(arr)||!arr.length||!("status" in arr[0])) throw 0;
-        setGames(arr); setPick(null); setPlatformPrompt(null);
-        alert("Sauvegarde restaur\u00e9e \u2705 ("+arr.length+" jeux)");
-      }catch(err){ alert("Fichier non valide. Choisis bien le .json export\u00e9 depuis cette app."); }
-      e.target.value="";
+  const update = (id, patch) => setGames(gs => gs.map(g => g.id === id ? {
+    ...g,
+    ...patch
+  } : g));
+  const triageGame = unsorted[0] ?? null;
+  const triageQuick = status => triageGame && update(triageGame.id, {
+    status
+  });
+  const triageShortlist = () => triageGame && setPlatformPrompt({
+    game: triageGame,
+    target: STATUS.SHORTLIST
+  });
+  const triageMust = () => triageGame && setPlatformPrompt({
+    game: triageGame,
+    target: STATUS.MUSTFINISH
+  });
+  const confirmPlatform = platform => {
+    if (!platformPrompt) return;
+    update(platformPrompt.game.id, {
+      status: platformPrompt.target,
+      platform
+    });
+    setPlatformPrompt(null);
+  };
+  const pickPool = [...shortlist, ...mustfinish];
+  const eligible = pickPool.filter(g => pickFilter === PLATFORM.BOTH ? true : canRunOn(g, pickFilter));
+  const doPick = () => {
+    if (!eligible.length) return;
+    setPick(eligible[Math.floor(Math.random() * eligible.length)]);
+  };
+  const launch = (game, plat) => {
+    const count = plat === PLATFORM.PC ? playingPC.length : playingDeck.length;
+    if (count >= MAX_SLOTS) return;
+    update(game.id, {
+      status: STATUS.PLAYING,
+      runningOn: plat
+    });
+    setPick(null);
+  };
+  const pcFull = playingPC.length >= MAX_SLOTS,
+    deckFull = playingDeck.length >= MAX_SLOTS;
+  const resetAll = () => {
+    if (confirm("Recommencer le tri \u00e0 z\u00e9ro ? Tes choix actuels seront effac\u00e9s.")) {
+      setGames(STEAM_LIBRARY.map(mkGame));
+      setView("triage");
+      setPick(null);
+    }
+  };
+  const exportSave = () => {
+    const blob = new Blob([JSON.stringify(games, null, 2)], {
+      type: "application/json"
+    });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "mon-backlog-sauvegarde.json";
+    a.click();
+  };
+  const importRef = useRef();
+  const importSave = e => {
+    const f = e.target.files && e.target.files[0];
+    if (!f) return;
+    const r = new FileReader();
+    r.onload = () => {
+      try {
+        const arr = JSON.parse(r.result);
+        if (!Array.isArray(arr) || !arr.length || !("status" in arr[0])) throw 0;
+        setGames(arr);
+        setPick(null);
+        setPlatformPrompt(null);
+        alert("Sauvegarde restaur\u00e9e \u2705 (" + arr.length + " jeux)");
+      } catch (err) {
+        alert("Fichier non valide. Choisis bien le .json export\u00e9 depuis cette app.");
+      }
+      e.target.value = "";
     };
     r.readAsText(f);
   };
-  const steamRef=useRef();
-  const refreshFromSteam=(e)=>{
-    const f=e.target.files&&e.target.files[0]; if(!f)return;
-    const r=new FileReader();
-    r.onload=()=>{
-      const fresh=parseSteamHTML(r.result);
-      e.target.value="";
-      if(!fresh){ alert("Je n'ai pas trouv\u00e9 tes jeux dans ce fichier. Refais Ctrl+S sur ta page de jeux Steam en choisissant \"Page Web, HTML seul\"."); return; }
-      const map={}; fresh.forEach(g=>map[g.id]=g);
-      let updated=0, added=0;
-      setGames(prev=>{
-        const next=prev.map(g=>{
-          const f2=map[g.id];
-          if(f2){ updated++; return {...g, minutes:f2.minutes, achUnlocked:(f2.achUnlocked!==undefined?f2.achUnlocked:g.achUnlocked), achTotal:(f2.achTotal!==undefined?f2.achTotal:g.achTotal), achPct:(f2.achPct!==undefined?f2.achPct:g.achPct)}; }
+  const steamRef = useRef();
+  const refreshFromSteam = e => {
+    const f = e.target.files && e.target.files[0];
+    if (!f) return;
+    const r = new FileReader();
+    r.onload = () => {
+      const fresh = parseSteamHTML(r.result);
+      e.target.value = "";
+      if (!fresh) {
+        alert("Je n'ai pas trouv\u00e9 tes jeux dans ce fichier. Refais Ctrl+S sur ta page de jeux Steam en choisissant \"Page Web, HTML seul\".");
+        return;
+      }
+      const map = {};
+      fresh.forEach(g => map[g.id] = g);
+      let updated = 0,
+        added = 0;
+      setGames(prev => {
+        const next = prev.map(g => {
+          const f2 = map[g.id];
+          if (f2) {
+            updated++;
+            return {
+              ...g,
+              minutes: f2.minutes,
+              achUnlocked: f2.achUnlocked !== undefined ? f2.achUnlocked : g.achUnlocked,
+              achTotal: f2.achTotal !== undefined ? f2.achTotal : g.achTotal,
+              achPct: f2.achPct !== undefined ? f2.achPct : g.achPct
+            };
+          }
           return g;
         });
-        const known=new Set(prev.map(g=>g.id));
-        fresh.forEach(f2=>{ if(!known.has(f2.id)){ next.push(mkGame(f2)); added++; } });
+        const known = new Set(prev.map(g => g.id));
+        fresh.forEach(f2 => {
+          if (!known.has(f2.id)) {
+            next.push(mkGame(f2));
+            added++;
+          }
+        });
         return next;
       });
-      alert("Mis \u00e0 jour \u2705\\n"+updated+" jeux rafra\u00eechis"+(added?(", "+added+" nouveau(x) ajout\u00e9(s) au tri"):"")+".\\nTon classement est conserv\u00e9.");
+      alert("Mis \u00e0 jour \u2705\\n" + updated + " jeux rafra\u00eechis" + (added ? ", " + added + " nouveau(x) ajout\u00e9(s) au tri" : "") + ".\\nTon classement est conserv\u00e9.");
     };
     r.readAsText(f);
   };
-
-  return (
-    <div style={S.root}>
-      <header style={S.header}>
-        <div style={S.brand}><Sparkles size={20} sw={2.5}/><span>BACKLOG BUSTER</span></div>
-        <nav style={S.nav}>
-          <button style={S.navBtn(view==="triage")} onClick={()=>setView("triage")}>Tri {unsorted.length>0 && <span style={S.badge}>{unsorted.length}</span>}</button>
-          <button style={S.navBtn(view==="board")} onClick={()=>setView("board")}>Tableau</button>
-          <button style={S.navGhost} onClick={exportSave} title="Sauvegarder une copie"><Download size={15}/></button>
-          <button style={S.navGhost} onClick={()=>importRef.current.click()} title="Restaurer une sauvegarde"><Upload size={15}/></button>
-          <input ref={importRef} type="file" accept=".json,application/json" hidden onChange={importSave}/>
-          <button style={S.navRefresh} onClick={()=>steamRef.current.click()} title="Mettre \u00e0 jour les succ\u00e8s depuis un export Steam"><Flame size={15}/> MAJ succ\u00e8s</button>
-          <input ref={steamRef} type="file" accept=".html,.htm,text/html" hidden onChange={refreshFromSteam}/>
-          {session ? (
-            <div style={S.acctBox}>
-              <span style={S.syncDot(syncState)} title={syncMsg(syncState)}/>
-              <span style={S.acctEmail}>{session.user.email}</span>
-              <button style={S.navGhost} onClick={()=>sb.auth.signOut()} title="Se d\u00e9connecter"><X size={15}/></button>
-            </div>
-          ) : (
-            <button style={S.navLogin} onClick={()=>setAuthOpen(true)}>Se connecter</button>
-          )}
-        </nav>
-      </header>
-
-      {authOpen && !session && <AuthPanel onClose={()=>setAuthOpen(false)}/>}
-
-      {view==="triage" && (
-        <main style={S.center}>
-          {platformPrompt ? (
-            <>
-              <div style={S.triageMeta}>Sur quelle plateforme tu y jouerais ?</div>
-              <div style={S.card}><div style={S.cardName}>{platformPrompt.game.name}</div></div>
-              <div style={S.triageBtns}>
-                <button style={{...S.tBtn,...S.tPC}} onClick={()=>confirmPlatform(PLATFORM.PC)}><Monitor size={18}/> PC</button>
-                <button style={{...S.tBtn,...S.tBoth}} onClick={()=>confirmPlatform(PLATFORM.BOTH)}><Sparkles size={18}/> Les deux</button>
-                <button style={{...S.tBtn,...S.tDeck}} onClick={()=>confirmPlatform(PLATFORM.DECK)}><Gamepad2 size={18}/> Deck</button>
-              </div>
-            </>
-          ) : triageGame ? (
-            <>
-              <div style={S.triageMeta}>{unsorted.length} \u00e0 trier \u00b7 {shortlist.length+mustfinish.length} \u00e0 jouer</div>
-              <div style={S.card} key={triageGame.id}>
-                <div style={S.cardName}>{triageGame.name}</div>
-                <div style={S.cardTime}><Clock size={14}/> {triageGame.minutes<30?"Jamais vraiment lanc\u00e9":fmtHours(triageGame.minutes)+" jou\u00e9"}</div>
-                <div style={{...S.cardTime,marginTop:6,color:achColor(triageGame)}}><Trophy size={14}/> {achLabel(triageGame)??"Pas de succ\u00e8s"}</div>
-              </div>
-              <div style={S.triageBtns}>
-                <button style={{...S.tBtn,...S.tNever}} onClick={()=>triageQuick(STATUS.NEVER)}><X size={18}/> Jamais</button>
-                <button style={{...S.tBtn,...S.tSomeday}} onClick={()=>triageQuick(STATUS.SOMEDAY)}><Pause size={18}/> Un jour</button>
-                <button style={{...S.tBtn,...S.tMust}} onClick={triageMust}><Flame size={18}/> Must Finish</button>
-                <button style={{...S.tBtn,...S.tShort}} onClick={triageShortlist}><Check size={18}/> Shortlist</button>
-              </div>
-              <button style={S.tDone} onClick={()=>triageQuick(STATUS.DONE)}><Trophy size={15}/> D\u00e9j\u00e0 termin\u00e9</button>
-              <p style={S.hint}>Tranche vite. Si t'h\u00e9sites, c'est "Un jour".</p>
-            </>
-          ) : (
-            <div style={S.doneTriage}>
-              <Trophy size={40}/>
-              <h2 style={S.h2}>Tri termin\u00e9 \ud83c\udfaf</h2>
-              <p style={S.lead}>{shortlist.length} jeux dans ta shortlist. C'est \u00e7a, ton vrai backlog.</p>
-              <button style={S.bigBtn} onClick={()=>setView("board")}>Voir mon tableau</button>
-            </div>
-          )}
-        </main>
-      )}
-
-      {view==="board" && (
-        <main style={S.board}>
-          <section style={S.stats}>
-            <Stat icon={<Library size={16}/>} label="Biblioth\u00e8que" value={games.length}/>
-            <Stat icon={<Trophy size={16}/>} label="Termin\u00e9s" value={done.length} accent="#7ee787"/>
-            <Stat icon={<Flame size={16}/>} label="Shortlist" value={shortlist.length} accent="#ffa657"/>
-            <Stat icon={<Trophy size={16}/>} label="100% succ\u00e8s" value={perfected.length} accent="#d2a8ff"/>
-            <Stat icon={<Coins size={16}/>} label="Jamais lanc\u00e9s" value={untouched.length} accent="#f85149"/>
-          </section>
-
-          {untouched.length>5 && (
-            <div style={S.warn}><Coins size={16}/> {untouched.length} jeux jamais vraiment lanc\u00e9s dorment dans ta biblioth\u00e8que. R\u00e8gle : finis-en 2 avant d'en acheter un nouveau.</div>
-          )}
-
-          <section style={S.activeRow}>
-            <SlotBox icon={<Monitor size={16}/>} label="PC" color="#79c0ff" games={playingPC} onDone={(id)=>update(id,{status:STATUS.DONE})} onDrop={(id)=>update(id,{status:STATUS.DROPPED})}/>
-            <SlotBox icon={<Gamepad2 size={16}/>} label="Steam Deck" color="#d2a8ff" games={playingDeck} onDone={(id)=>update(id,{status:STATUS.DONE})} onDrop={(id)=>update(id,{status:STATUS.DROPPED})}/>
-          </section>
-
-          <section style={S.pickBox}>
-            <div style={S.pickFilters}>
-              <span style={S.pickFilterLbl}>Pioche pour :</span>
-              {[[PLATFORM.BOTH,"Tout"],[PLATFORM.PC,"PC"],[PLATFORM.DECK,"Deck"]].map(([v,l])=>(
-                <button key={v} style={S.filterBtn(pickFilter===v)} onClick={()=>{setPickFilter(v);setPick(null);}}>{l}</button>
-              ))}
-            </div>
-            {pick ? (
-              <>
-                <div style={S.pickName}>{pick.name}</div>
-                <div style={S.pickBtns}>
-                  {canRunOn(pick,PLATFORM.PC) && <button style={S.pickGo} disabled={pcFull} onClick={()=>launch(pick,PLATFORM.PC)}><Monitor size={15}/> Lancer PC</button>}
-                  {canRunOn(pick,PLATFORM.DECK) && <button style={S.pickGoDeck} disabled={deckFull} onClick={()=>launch(pick,PLATFORM.DECK)}><Gamepad2 size={15}/> Lancer Deck</button>}
-                  <button style={S.pickAgain} onClick={doPick}><Shuffle size={15}/> Repioche</button>
-                </div>
-              </>
-            ) : (
-              <>
-                <p style={S.muted}>Tu sais pas quoi jouer ? Laisse le hasard d\u00e9cider.</p>
-                <button style={S.bigBtn} onClick={doPick} disabled={!eligible.length}><Shuffle size={18}/> Pioche un jeu</button>
-                {!eligible.length && <p style={S.hint}>Aucun jeu \u00e0 jouer pour ce filtre (ajoute-en \u00e0 Shortlist ou Must Finish).</p>}
-              </>
-            )}
-          </section>
-
-          {perfected.length>0 && (
-            <section style={S.trophyWall}>
-              <div style={S.trophyHead}><Trophy size={16}/> Mur des trophées \u00b7 {perfected.length} jeu{perfected.length>1?"x":""} \u00e0 100%</div>
-              <div style={S.trophyGrid}>
-                {perfected.map(g=>(
-                  <div key={g.id} style={S.trophyChip}>
-                    <Trophy size={13}/> <span style={S.trophyName}>{g.name}</span>
-                  </div>
-                ))}
-              </div>
-            </section>
-          )}
-
-          <div style={S.toolbar}>
-            <input style={S.searchInput} placeholder="Rechercher un jeu\u2026" value={search} onChange={(e)=>setSearch(e.target.value)}/>
-            {search && <button style={S.clearBtn} onClick={()=>setSearch("")}><X size={14}/></button>}
-            <div style={S.sortGroup}>
-              <span style={S.sortLbl}>Trier :</span>
-              {[["name","A-Z"],["playtime","Temps"],["ach","% succ\u00e8s"]].map(([v,l])=>(
-                <button key={v} style={S.sortBtn(sortBy===v)} onClick={()=>setSortBy(v)}>{l}</button>
-              ))}
-            </div>
-          </div>
-
-          <section style={S.columns}>
-            <Column title="Shortlist" color="#ffa657" games={arrange(shortlist)} showPlatform render={(g)=>(
-              <div style={S.colGameActions}>
-                {canRunOn(g,PLATFORM.PC) && <button style={S.colBtn} disabled={pcFull} onClick={()=>launch(g,PLATFORM.PC)}>\u25b6 PC</button>}
-                {canRunOn(g,PLATFORM.DECK) && <button style={S.colBtn} disabled={deckFull} onClick={()=>launch(g,PLATFORM.DECK)}>\u25b6 Deck</button>}
-                <button style={S.colBtn} onClick={()=>update(g.id,{status:STATUS.MUSTFINISH})}>Must Finish</button>
-                <button style={S.colBtn} onClick={()=>update(g.id,{status:STATUS.SOMEDAY})}>Un jour</button>
-              </div>
-            )}/>
-            <Column title="Must Finish" color="#f778ba" games={arrange(mustfinish)} showPlatform render={(g)=>(
-              <div style={S.colGameActions}>
-                {canRunOn(g,PLATFORM.PC) && <button style={S.colBtn} disabled={pcFull} onClick={()=>launch(g,PLATFORM.PC)}>\u25b6 PC</button>}
-                {canRunOn(g,PLATFORM.DECK) && <button style={S.colBtn} disabled={deckFull} onClick={()=>launch(g,PLATFORM.DECK)}>\u25b6 Deck</button>}
-                <button style={S.colBtn} onClick={()=>update(g.id,{status:STATUS.SHORTLIST})}>\u2191 Shortlist</button>
-                <button style={S.colBtn} onClick={()=>update(g.id,{status:STATUS.SOMEDAY})}>Un jour</button>
-              </div>
-            )}/>
-            <Column title="Un jour" color="#79c0ff" games={arrange(someday)} render={(g)=>(
-              <div style={S.colGameActions}>
-                <button style={S.colBtn} onClick={()=>update(g.id,{status:STATUS.MUSTFINISH})}>\u2191 Must Finish</button>
-                <button style={S.colBtn} onClick={()=>update(g.id,{status:STATUS.NEVER})}>Jamais</button>
-              </div>
-            )}/>
-            <Column title="Jamais" color="#8b949e" games={arrange(by(STATUS.NEVER))} render={(g)=>(
-              <div style={S.colGameActions}>
-                <button style={S.colBtn} onClick={()=>update(g.id,{status:STATUS.SOMEDAY})}>\u2191 Un jour</button>
-              </div>
-            )}/>
-          </section>
-
-          <section style={{...S.columns,marginTop:14}}>
-            <Column title="Termin\u00e9s" color="#7ee787" games={arrange(done)} render={()=>null}/>
-            <Column title="Abandonn\u00e9s" color="#8b949e" games={arrange(dropped)} render={(g)=>(
-              <div style={S.colGameActions}><button style={S.colBtn} onClick={()=>update(g.id,{status:STATUS.SHORTLIST})}>R\u00e9essayer</button></div>
-            )}/>
-          </section>
-
-          <div style={{textAlign:"center",marginTop:28}}>
-            <button style={S.resetBtn} onClick={resetAll}>Recommencer le tri \u00e0 z\u00e9ro</button>
-          </div>
-        </main>
-      )}
-    </div>
-  );
+  return /*#__PURE__*/React.createElement("div", {
+    style: S.root
+  }, /*#__PURE__*/React.createElement("header", {
+    style: S.header
+  }, /*#__PURE__*/React.createElement("div", {
+    style: S.brand
+  }, /*#__PURE__*/React.createElement(Sparkles, {
+    size: 20,
+    sw: 2.5
+  }), /*#__PURE__*/React.createElement("span", null, "BACKLOG BUSTER")), /*#__PURE__*/React.createElement("nav", {
+    style: S.nav
+  }, /*#__PURE__*/React.createElement("button", {
+    style: S.navBtn(view === "triage"),
+    onClick: () => setView("triage")
+  }, "Tri ", unsorted.length > 0 && /*#__PURE__*/React.createElement("span", {
+    style: S.badge
+  }, unsorted.length)), /*#__PURE__*/React.createElement("button", {
+    style: S.navBtn(view === "board"),
+    onClick: () => setView("board")
+  }, "Tableau"), /*#__PURE__*/React.createElement("button", {
+    style: S.navGhost,
+    onClick: exportSave,
+    title: "Sauvegarder une copie"
+  }, /*#__PURE__*/React.createElement(Download, {
+    size: 15
+  })), /*#__PURE__*/React.createElement("button", {
+    style: S.navGhost,
+    onClick: () => importRef.current.click(),
+    title: "Restaurer une sauvegarde"
+  }, /*#__PURE__*/React.createElement(Upload, {
+    size: 15
+  })), /*#__PURE__*/React.createElement("input", {
+    ref: importRef,
+    type: "file",
+    accept: ".json,application/json",
+    hidden: true,
+    onChange: importSave
+  }), /*#__PURE__*/React.createElement("button", {
+    style: S.navRefresh,
+    onClick: () => steamRef.current.click(),
+    title: "Mettre \\u00e0 jour les succ\\u00e8s depuis un export Steam"
+  }, /*#__PURE__*/React.createElement(Flame, {
+    size: 15
+  }), " MAJ succ\\u00e8s"), /*#__PURE__*/React.createElement("input", {
+    ref: steamRef,
+    type: "file",
+    accept: ".html,.htm,text/html",
+    hidden: true,
+    onChange: refreshFromSteam
+  }), session ? /*#__PURE__*/React.createElement("div", {
+    style: S.acctBox
+  }, /*#__PURE__*/React.createElement("span", {
+    style: S.syncDot(syncState),
+    title: syncMsg(syncState)
+  }), /*#__PURE__*/React.createElement("span", {
+    style: S.acctEmail
+  }, session.user.email), /*#__PURE__*/React.createElement("button", {
+    style: S.navGhost,
+    onClick: () => sb.auth.signOut(),
+    title: "Se d\\u00e9connecter"
+  }, /*#__PURE__*/React.createElement(X, {
+    size: 15
+  }))) : /*#__PURE__*/React.createElement("button", {
+    style: S.navLogin,
+    onClick: () => setAuthOpen(true)
+  }, "Se connecter"))), authOpen && !session && /*#__PURE__*/React.createElement(AuthPanel, {
+    onClose: () => setAuthOpen(false)
+  }), view === "triage" && /*#__PURE__*/React.createElement("main", {
+    style: S.center
+  }, platformPrompt ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    style: S.triageMeta
+  }, "Sur quelle plateforme tu y jouerais ?"), /*#__PURE__*/React.createElement("div", {
+    style: S.card
+  }, /*#__PURE__*/React.createElement("div", {
+    style: S.cardName
+  }, platformPrompt.game.name)), /*#__PURE__*/React.createElement("div", {
+    style: S.triageBtns
+  }, /*#__PURE__*/React.createElement("button", {
+    style: {
+      ...S.tBtn,
+      ...S.tPC
+    },
+    onClick: () => confirmPlatform(PLATFORM.PC)
+  }, /*#__PURE__*/React.createElement(Monitor, {
+    size: 18
+  }), " PC"), /*#__PURE__*/React.createElement("button", {
+    style: {
+      ...S.tBtn,
+      ...S.tBoth
+    },
+    onClick: () => confirmPlatform(PLATFORM.BOTH)
+  }, /*#__PURE__*/React.createElement(Sparkles, {
+    size: 18
+  }), " Les deux"), /*#__PURE__*/React.createElement("button", {
+    style: {
+      ...S.tBtn,
+      ...S.tDeck
+    },
+    onClick: () => confirmPlatform(PLATFORM.DECK)
+  }, /*#__PURE__*/React.createElement(Gamepad2, {
+    size: 18
+  }), " Deck"))) : triageGame ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    style: S.triageMeta
+  }, unsorted.length, " \\u00e0 trier \\u00b7 ", shortlist.length + mustfinish.length, " \\u00e0 jouer"), /*#__PURE__*/React.createElement("div", {
+    style: S.card,
+    key: triageGame.id
+  }, /*#__PURE__*/React.createElement("div", {
+    style: S.cardName
+  }, triageGame.name), /*#__PURE__*/React.createElement("div", {
+    style: S.cardTime
+  }, /*#__PURE__*/React.createElement(Clock, {
+    size: 14
+  }), " ", triageGame.minutes < 30 ? "Jamais vraiment lanc\u00e9" : fmtHours(triageGame.minutes) + " jou\u00e9"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...S.cardTime,
+      marginTop: 6,
+      color: achColor(triageGame)
+    }
+  }, /*#__PURE__*/React.createElement(Trophy, {
+    size: 14
+  }), " ", achLabel(triageGame) ?? "Pas de succ\u00e8s")), /*#__PURE__*/React.createElement("div", {
+    style: S.triageBtns
+  }, /*#__PURE__*/React.createElement("button", {
+    style: {
+      ...S.tBtn,
+      ...S.tNever
+    },
+    onClick: () => triageQuick(STATUS.NEVER)
+  }, /*#__PURE__*/React.createElement(X, {
+    size: 18
+  }), " Jamais"), /*#__PURE__*/React.createElement("button", {
+    style: {
+      ...S.tBtn,
+      ...S.tSomeday
+    },
+    onClick: () => triageQuick(STATUS.SOMEDAY)
+  }, /*#__PURE__*/React.createElement(Pause, {
+    size: 18
+  }), " Un jour"), /*#__PURE__*/React.createElement("button", {
+    style: {
+      ...S.tBtn,
+      ...S.tMust
+    },
+    onClick: triageMust
+  }, /*#__PURE__*/React.createElement(Flame, {
+    size: 18
+  }), " Must Finish"), /*#__PURE__*/React.createElement("button", {
+    style: {
+      ...S.tBtn,
+      ...S.tShort
+    },
+    onClick: triageShortlist
+  }, /*#__PURE__*/React.createElement(Check, {
+    size: 18
+  }), " Shortlist")), /*#__PURE__*/React.createElement("button", {
+    style: S.tDone,
+    onClick: () => triageQuick(STATUS.DONE)
+  }, /*#__PURE__*/React.createElement(Trophy, {
+    size: 15
+  }), " D\\u00e9j\\u00e0 termin\\u00e9"), /*#__PURE__*/React.createElement("p", {
+    style: S.hint
+  }, "Tranche vite. Si t'h\\u00e9sites, c'est \"Un jour\".")) : /*#__PURE__*/React.createElement("div", {
+    style: S.doneTriage
+  }, /*#__PURE__*/React.createElement(Trophy, {
+    size: 40
+  }), /*#__PURE__*/React.createElement("h2", {
+    style: S.h2
+  }, "Tri termin\\u00e9 \\ud83c\\udfaf"), /*#__PURE__*/React.createElement("p", {
+    style: S.lead
+  }, shortlist.length, " jeux dans ta shortlist. C'est \\u00e7a, ton vrai backlog."), /*#__PURE__*/React.createElement("button", {
+    style: S.bigBtn,
+    onClick: () => setView("board")
+  }, "Voir mon tableau"))), view === "board" && /*#__PURE__*/React.createElement("main", {
+    style: S.board
+  }, /*#__PURE__*/React.createElement("section", {
+    style: S.stats
+  }, /*#__PURE__*/React.createElement(Stat, {
+    icon: /*#__PURE__*/React.createElement(Library, {
+      size: 16
+    }),
+    label: "Biblioth\\u00e8que",
+    value: games.length
+  }), /*#__PURE__*/React.createElement(Stat, {
+    icon: /*#__PURE__*/React.createElement(Trophy, {
+      size: 16
+    }),
+    label: "Termin\\u00e9s",
+    value: done.length,
+    accent: "#7ee787"
+  }), /*#__PURE__*/React.createElement(Stat, {
+    icon: /*#__PURE__*/React.createElement(Flame, {
+      size: 16
+    }),
+    label: "Shortlist",
+    value: shortlist.length,
+    accent: "#ffa657"
+  }), /*#__PURE__*/React.createElement(Stat, {
+    icon: /*#__PURE__*/React.createElement(Trophy, {
+      size: 16
+    }),
+    label: "100% succ\\u00e8s",
+    value: perfected.length,
+    accent: "#d2a8ff"
+  }), /*#__PURE__*/React.createElement(Stat, {
+    icon: /*#__PURE__*/React.createElement(Coins, {
+      size: 16
+    }),
+    label: "Jamais lanc\\u00e9s",
+    value: untouched.length,
+    accent: "#f85149"
+  })), untouched.length > 5 && /*#__PURE__*/React.createElement("div", {
+    style: S.warn
+  }, /*#__PURE__*/React.createElement(Coins, {
+    size: 16
+  }), " ", untouched.length, " jeux jamais vraiment lanc\\u00e9s dorment dans ta biblioth\\u00e8que. R\\u00e8gle : finis-en 2 avant d'en acheter un nouveau."), /*#__PURE__*/React.createElement("section", {
+    style: S.activeRow
+  }, /*#__PURE__*/React.createElement(SlotBox, {
+    icon: /*#__PURE__*/React.createElement(Monitor, {
+      size: 16
+    }),
+    label: "PC",
+    color: "#79c0ff",
+    games: playingPC,
+    onDone: id => update(id, {
+      status: STATUS.DONE
+    }),
+    onDrop: id => update(id, {
+      status: STATUS.DROPPED
+    })
+  }), /*#__PURE__*/React.createElement(SlotBox, {
+    icon: /*#__PURE__*/React.createElement(Gamepad2, {
+      size: 16
+    }),
+    label: "Steam Deck",
+    color: "#d2a8ff",
+    games: playingDeck,
+    onDone: id => update(id, {
+      status: STATUS.DONE
+    }),
+    onDrop: id => update(id, {
+      status: STATUS.DROPPED
+    })
+  })), /*#__PURE__*/React.createElement("section", {
+    style: S.pickBox
+  }, /*#__PURE__*/React.createElement("div", {
+    style: S.pickFilters
+  }, /*#__PURE__*/React.createElement("span", {
+    style: S.pickFilterLbl
+  }, "Pioche pour :"), [[PLATFORM.BOTH, "Tout"], [PLATFORM.PC, "PC"], [PLATFORM.DECK, "Deck"]].map(([v, l]) => /*#__PURE__*/React.createElement("button", {
+    key: v,
+    style: S.filterBtn(pickFilter === v),
+    onClick: () => {
+      setPickFilter(v);
+      setPick(null);
+    }
+  }, l))), pick ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    style: S.pickName
+  }, pick.name), /*#__PURE__*/React.createElement("div", {
+    style: S.pickBtns
+  }, canRunOn(pick, PLATFORM.PC) && /*#__PURE__*/React.createElement("button", {
+    style: S.pickGo,
+    disabled: pcFull,
+    onClick: () => launch(pick, PLATFORM.PC)
+  }, /*#__PURE__*/React.createElement(Monitor, {
+    size: 15
+  }), " Lancer PC"), canRunOn(pick, PLATFORM.DECK) && /*#__PURE__*/React.createElement("button", {
+    style: S.pickGoDeck,
+    disabled: deckFull,
+    onClick: () => launch(pick, PLATFORM.DECK)
+  }, /*#__PURE__*/React.createElement(Gamepad2, {
+    size: 15
+  }), " Lancer Deck"), /*#__PURE__*/React.createElement("button", {
+    style: S.pickAgain,
+    onClick: doPick
+  }, /*#__PURE__*/React.createElement(Shuffle, {
+    size: 15
+  }), " Repioche"))) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", {
+    style: S.muted
+  }, "Tu sais pas quoi jouer ? Laisse le hasard d\\u00e9cider."), /*#__PURE__*/React.createElement("button", {
+    style: S.bigBtn,
+    onClick: doPick,
+    disabled: !eligible.length
+  }, /*#__PURE__*/React.createElement(Shuffle, {
+    size: 18
+  }), " Pioche un jeu"), !eligible.length && /*#__PURE__*/React.createElement("p", {
+    style: S.hint
+  }, "Aucun jeu \\u00e0 jouer pour ce filtre (ajoute-en \\u00e0 Shortlist ou Must Finish)."))), perfected.length > 0 && /*#__PURE__*/React.createElement("section", {
+    style: S.trophyWall
+  }, /*#__PURE__*/React.createElement("div", {
+    style: S.trophyHead
+  }, /*#__PURE__*/React.createElement(Trophy, {
+    size: 16
+  }), " Mur des trophées \\u00b7 ", perfected.length, " jeu", perfected.length > 1 ? "x" : "", " \\u00e0 100%"), /*#__PURE__*/React.createElement("div", {
+    style: S.trophyGrid
+  }, perfected.map(g => /*#__PURE__*/React.createElement("div", {
+    key: g.id,
+    style: S.trophyChip
+  }, /*#__PURE__*/React.createElement(Trophy, {
+    size: 13
+  }), " ", /*#__PURE__*/React.createElement("span", {
+    style: S.trophyName
+  }, g.name))))), /*#__PURE__*/React.createElement("div", {
+    style: S.toolbar
+  }, /*#__PURE__*/React.createElement("input", {
+    style: S.searchInput,
+    placeholder: "Rechercher un jeu\\u2026",
+    value: search,
+    onChange: e => setSearch(e.target.value)
+  }), search && /*#__PURE__*/React.createElement("button", {
+    style: S.clearBtn,
+    onClick: () => setSearch("")
+  }, /*#__PURE__*/React.createElement(X, {
+    size: 14
+  })), /*#__PURE__*/React.createElement("div", {
+    style: S.sortGroup
+  }, /*#__PURE__*/React.createElement("span", {
+    style: S.sortLbl
+  }, "Trier :"), [["name", "A-Z"], ["playtime", "Temps"], ["ach", "% succ\u00e8s"]].map(([v, l]) => /*#__PURE__*/React.createElement("button", {
+    key: v,
+    style: S.sortBtn(sortBy === v),
+    onClick: () => setSortBy(v)
+  }, l)))), /*#__PURE__*/React.createElement("section", {
+    style: S.columns
+  }, /*#__PURE__*/React.createElement(Column, {
+    title: "Shortlist",
+    color: "#ffa657",
+    games: arrange(shortlist),
+    showPlatform: true,
+    render: g => /*#__PURE__*/React.createElement("div", {
+      style: S.colGameActions
+    }, canRunOn(g, PLATFORM.PC) && /*#__PURE__*/React.createElement("button", {
+      style: S.colBtn,
+      disabled: pcFull,
+      onClick: () => launch(g, PLATFORM.PC)
+    }, "\\u25b6 PC"), canRunOn(g, PLATFORM.DECK) && /*#__PURE__*/React.createElement("button", {
+      style: S.colBtn,
+      disabled: deckFull,
+      onClick: () => launch(g, PLATFORM.DECK)
+    }, "\\u25b6 Deck"), /*#__PURE__*/React.createElement("button", {
+      style: S.colBtn,
+      onClick: () => update(g.id, {
+        status: STATUS.MUSTFINISH
+      })
+    }, "Must Finish"), /*#__PURE__*/React.createElement("button", {
+      style: S.colBtn,
+      onClick: () => update(g.id, {
+        status: STATUS.SOMEDAY
+      })
+    }, "Un jour"))
+  }), /*#__PURE__*/React.createElement(Column, {
+    title: "Must Finish",
+    color: "#f778ba",
+    games: arrange(mustfinish),
+    showPlatform: true,
+    render: g => /*#__PURE__*/React.createElement("div", {
+      style: S.colGameActions
+    }, canRunOn(g, PLATFORM.PC) && /*#__PURE__*/React.createElement("button", {
+      style: S.colBtn,
+      disabled: pcFull,
+      onClick: () => launch(g, PLATFORM.PC)
+    }, "\\u25b6 PC"), canRunOn(g, PLATFORM.DECK) && /*#__PURE__*/React.createElement("button", {
+      style: S.colBtn,
+      disabled: deckFull,
+      onClick: () => launch(g, PLATFORM.DECK)
+    }, "\\u25b6 Deck"), /*#__PURE__*/React.createElement("button", {
+      style: S.colBtn,
+      onClick: () => update(g.id, {
+        status: STATUS.SHORTLIST
+      })
+    }, "\\u2191 Shortlist"), /*#__PURE__*/React.createElement("button", {
+      style: S.colBtn,
+      onClick: () => update(g.id, {
+        status: STATUS.SOMEDAY
+      })
+    }, "Un jour"))
+  }), /*#__PURE__*/React.createElement(Column, {
+    title: "Un jour",
+    color: "#79c0ff",
+    games: arrange(someday),
+    render: g => /*#__PURE__*/React.createElement("div", {
+      style: S.colGameActions
+    }, /*#__PURE__*/React.createElement("button", {
+      style: S.colBtn,
+      onClick: () => update(g.id, {
+        status: STATUS.MUSTFINISH
+      })
+    }, "\\u2191 Must Finish"), /*#__PURE__*/React.createElement("button", {
+      style: S.colBtn,
+      onClick: () => update(g.id, {
+        status: STATUS.NEVER
+      })
+    }, "Jamais"))
+  }), /*#__PURE__*/React.createElement(Column, {
+    title: "Jamais",
+    color: "#8b949e",
+    games: arrange(by(STATUS.NEVER)),
+    render: g => /*#__PURE__*/React.createElement("div", {
+      style: S.colGameActions
+    }, /*#__PURE__*/React.createElement("button", {
+      style: S.colBtn,
+      onClick: () => update(g.id, {
+        status: STATUS.SOMEDAY
+      })
+    }, "\\u2191 Un jour"))
+  })), /*#__PURE__*/React.createElement("section", {
+    style: {
+      ...S.columns,
+      marginTop: 14
+    }
+  }, /*#__PURE__*/React.createElement(Column, {
+    title: "Termin\\u00e9s",
+    color: "#7ee787",
+    games: arrange(done),
+    render: () => null
+  }), /*#__PURE__*/React.createElement(Column, {
+    title: "Abandonn\\u00e9s",
+    color: "#8b949e",
+    games: arrange(dropped),
+    render: g => /*#__PURE__*/React.createElement("div", {
+      style: S.colGameActions
+    }, /*#__PURE__*/React.createElement("button", {
+      style: S.colBtn,
+      onClick: () => update(g.id, {
+        status: STATUS.SHORTLIST
+      })
+    }, "R\\u00e9essayer"))
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "center",
+      marginTop: 28
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    style: S.resetBtn,
+    onClick: resetAll
+  }, "Recommencer le tri \\u00e0 z\\u00e9ro"))));
 }
-
-function Stat({icon,label,value,accent="#e6edf3"}){
-  return <div style={S.statBox}><div style={{...S.statIcon,color:accent}}>{icon}</div><div style={{...S.statValue,color:accent}}>{value}</div><div style={S.statLabel}>{label}</div></div>;
+function Stat({
+  icon,
+  label,
+  value,
+  accent = "#e6edf3"
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    style: S.statBox
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...S.statIcon,
+      color: accent
+    }
+  }, icon), /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...S.statValue,
+      color: accent
+    }
+  }, value), /*#__PURE__*/React.createElement("div", {
+    style: S.statLabel
+  }, label));
 }
-function SlotBox({icon,label,color,games,onDone,onDrop}){
-  return (
-    <div style={S.slotBox}>
-      <div style={{...S.slotHead,color}}>{icon} {label} ({games.length}/{MAX_SLOTS})</div>
-      {games.length===0 && <p style={S.muted}>Aucun jeu actif.</p>}
-      {games.map(g=>(
-        <div key={g.id} style={S.activeGame}>
-          <span>{g.name}</span>
-          <div style={S.activeActions}>
-            <button style={S.miniDone} onClick={()=>onDone(g.id)}><Check size={14}/> Fini</button>
-            <button style={S.miniDrop} onClick={()=>onDrop(g.id)}><X size={14}/> Abandon</button>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
+function SlotBox({
+  icon,
+  label,
+  color,
+  games,
+  onDone,
+  onDrop
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    style: S.slotBox
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...S.slotHead,
+      color
+    }
+  }, icon, " ", label, " (", games.length, "/", MAX_SLOTS, ")"), games.length === 0 && /*#__PURE__*/React.createElement("p", {
+    style: S.muted
+  }, "Aucun jeu actif."), games.map(g => /*#__PURE__*/React.createElement("div", {
+    key: g.id,
+    style: S.activeGame
+  }, /*#__PURE__*/React.createElement("span", null, g.name), /*#__PURE__*/React.createElement("div", {
+    style: S.activeActions
+  }, /*#__PURE__*/React.createElement("button", {
+    style: S.miniDone,
+    onClick: () => onDone(g.id)
+  }, /*#__PURE__*/React.createElement(Check, {
+    size: 14
+  }), " Fini"), /*#__PURE__*/React.createElement("button", {
+    style: S.miniDrop,
+    onClick: () => onDrop(g.id)
+  }, /*#__PURE__*/React.createElement(X, {
+    size: 14
+  }), " Abandon")))));
 }
-const PLAT_TAG={pc:["PC","#79c0ff"],deck:["Deck","#d2a8ff"],both:["PC+Deck","#7ee787"]};
-function Column({title,color,games,render,showPlatform}){
-  return (
-    <div style={S.col}>
-      <div style={{...S.colHead,color}}>{title} <span style={S.colCount}>{games.length}</span></div>
-      <div style={S.colBody}>
-        {games.length===0 && <p style={S.colEmpty}>\u2014</p>}
-        {games.map(g=>(
-          <div key={g.id} style={S.colGame}>
-            <div style={S.colGameTop}>
-              <span style={S.colGameName}>{g.name}</span>
-              {showPlatform && g.platform && <span style={{...S.platTag,color:PLAT_TAG[g.platform][1],borderColor:PLAT_TAG[g.platform][1]+"55"}}>{PLAT_TAG[g.platform][0]}</span>}
-            </div>
-            {g.achTotal>0 && (
-              <div style={S.achRow}>
-                <div style={S.achBar}><div style={{...S.achFill,width:g.achPct+"%",background:achColor(g)}}/></div>
-                <span style={{...S.achTxt,color:achColor(g)}}>{achLabel(g)}</span>
-              </div>
-            )}
-            {render(g)}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-const FONT="'DM Sans', -apple-system, sans-serif";
-const DISPLAY="'Space Mono', monospace";
-const S = {
-  root:{minHeight:"100vh",background:"#0d1117",color:"#e6edf3",fontFamily:FONT,paddingBottom:60},
-  header:{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"18px 28px",borderBottom:"1px solid #21262d",position:"sticky",top:0,background:"rgba(13,17,23,.85)",backdropFilter:"blur(10px)",zIndex:10},
-  brand:{display:"flex",alignItems:"center",gap:8,fontFamily:DISPLAY,fontWeight:700,letterSpacing:1,color:"#ffa657"},
-  nav:{display:"flex",gap:8,alignItems:"center"},
-  navBtn:(a)=>({display:"flex",alignItems:"center",gap:6,padding:"7px 14px",borderRadius:8,border:"1px solid "+(a?"#ffa657":"#30363d"),background:a?"#1c1408":"transparent",color:a?"#ffa657":"#8b949e",cursor:"pointer",fontFamily:FONT,fontSize:14}),
-  navGhost:{display:"flex",alignItems:"center",padding:"7px 10px",borderRadius:8,border:"1px solid #30363d",background:"transparent",color:"#8b949e",cursor:"pointer"},
-  navRefresh:{display:"flex",alignItems:"center",gap:6,padding:"7px 12px",borderRadius:8,border:"1px solid #ffa65744",background:"#1c1408",color:"#ffa657",cursor:"pointer",fontFamily:FONT,fontSize:13,fontWeight:600},
-  badge:{background:"#ffa657",color:"#0d1117",borderRadius:99,padding:"1px 7px",fontSize:12,fontWeight:700},
-  center:{maxWidth:560,margin:"0 auto",padding:"60px 24px",textAlign:"center"},
-  h2:{fontFamily:DISPLAY,fontSize:28,margin:"12px 0"},
-  lead:{color:"#8b949e",fontSize:17,lineHeight:1.6,margin:"0 0 28px"},
-  bigBtn:{display:"inline-flex",alignItems:"center",gap:10,background:"#ffa657",color:"#0d1117",border:"none",padding:"14px 26px",borderRadius:10,fontSize:16,fontWeight:700,cursor:"pointer",fontFamily:FONT},
-  triageMeta:{color:"#8b949e",fontSize:14,marginBottom:18,fontFamily:DISPLAY},
-  card:{background:"linear-gradient(135deg,#161b22,#1c2230)",border:"1px solid #30363d",borderRadius:16,padding:"44px 28px",marginBottom:28,animation:"pop .25s ease"},
-  cardName:{fontSize:26,fontWeight:700,marginBottom:12,lineHeight:1.2},
-  cardTime:{display:"inline-flex",alignItems:"center",gap:6,color:"#8b949e",fontSize:14},
-  triageBtns:{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:10},
-  tMust:{borderColor:"#f778ba44",color:"#f778ba"},
-  tDone:{display:"inline-flex",alignItems:"center",gap:6,marginTop:12,padding:"9px 18px",borderRadius:10,border:"1px solid #7ee78744",background:"#0f2417",color:"#7ee787",cursor:"pointer",fontFamily:FONT,fontSize:14,fontWeight:600},
-  tBtn:{display:"flex",flexDirection:"column",alignItems:"center",gap:6,padding:"16px 8px",borderRadius:12,border:"1px solid #30363d",background:"#161b22",color:"#e6edf3",cursor:"pointer",fontFamily:FONT,fontSize:15,fontWeight:600},
-  tNever:{borderColor:"#f8514944",color:"#f85149"}, tSomeday:{borderColor:"#79c0ff44",color:"#79c0ff"}, tShort:{borderColor:"#ffa65744",color:"#ffa657"},
-  tPC:{borderColor:"#79c0ff44",color:"#79c0ff"}, tDeck:{borderColor:"#d2a8ff44",color:"#d2a8ff"}, tBoth:{borderColor:"#7ee78744",color:"#7ee787"},
-  hint:{color:"#6e7681",fontSize:13,marginTop:18},
-  doneTriage:{display:"flex",flexDirection:"column",alignItems:"center",gap:4,color:"#7ee787"},
-  board:{maxWidth:1100,margin:"0 auto",padding:"28px 24px"},
-  stats:{display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:12,marginBottom:18},
-  statBox:{background:"#161b22",border:"1px solid #21262d",borderRadius:12,padding:"16px 18px"},
-  statIcon:{marginBottom:8}, statValue:{fontSize:28,fontWeight:700,fontFamily:DISPLAY,lineHeight:1}, statLabel:{color:"#8b949e",fontSize:13,marginTop:4},
-  warn:{display:"flex",alignItems:"center",gap:10,background:"#1c1408",border:"1px solid #f8514933",color:"#ffa657",borderRadius:10,padding:"12px 16px",fontSize:14,marginBottom:18},
-  activeRow:{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16,marginBottom:16},
-  slotBox:{background:"#161b22",border:"1px solid #21262d",borderRadius:14,padding:18},
-  slotHead:{display:"flex",alignItems:"center",gap:8,fontWeight:700,marginBottom:12},
-  activeGame:{display:"flex",justifyContent:"space-between",alignItems:"center",gap:10,padding:"10px 0",borderTop:"1px solid #21262d"},
-  activeActions:{display:"flex",gap:6,flexShrink:0},
-  miniDone:{display:"flex",alignItems:"center",gap:4,background:"#0f2417",border:"1px solid #7ee78744",color:"#7ee787",borderRadius:7,padding:"5px 9px",cursor:"pointer",fontSize:13,fontFamily:FONT},
-  miniDrop:{display:"flex",alignItems:"center",gap:4,background:"#21262d",border:"1px solid #30363d",color:"#8b949e",borderRadius:7,padding:"5px 9px",cursor:"pointer",fontSize:13,fontFamily:FONT},
-  pickBox:{background:"linear-gradient(135deg,#1c1408,#161b22)",border:"1px solid #ffa65733",borderRadius:14,padding:20,display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",textAlign:"center",marginBottom:24},
-  pickFilters:{display:"flex",alignItems:"center",gap:8,marginBottom:14},
-  pickFilterLbl:{color:"#8b949e",fontSize:13,fontFamily:DISPLAY},
-  filterBtn:(a)=>({padding:"5px 12px",borderRadius:7,border:"1px solid "+(a?"#ffa657":"#30363d"),background:a?"#ffa657":"transparent",color:a?"#0d1117":"#8b949e",cursor:"pointer",fontSize:13,fontFamily:FONT,fontWeight:a?700:400}),
-  pickName:{fontSize:24,fontWeight:700,margin:"8px 0 16px",color:"#ffa657"},
-  pickBtns:{display:"flex",gap:10,flexWrap:"wrap",justifyContent:"center"},
-  pickGo:{display:"flex",alignItems:"center",gap:6,background:"#79c0ff",color:"#0d1117",border:"none",padding:"10px 16px",borderRadius:9,fontWeight:700,cursor:"pointer",fontFamily:FONT},
-  pickGoDeck:{display:"flex",alignItems:"center",gap:6,background:"#d2a8ff",color:"#0d1117",border:"none",padding:"10px 16px",borderRadius:9,fontWeight:700,cursor:"pointer",fontFamily:FONT},
-  pickAgain:{display:"flex",alignItems:"center",gap:6,background:"transparent",color:"#ffa657",border:"1px solid #ffa65744",padding:"10px 16px",borderRadius:9,cursor:"pointer",fontFamily:FONT},
-  columns:{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:14},
-  toolbar:{display:"flex",alignItems:"center",gap:10,marginBottom:16,flexWrap:"wrap"},
-  searchInput:{flex:"1 1 200px",minWidth:160,background:"#161b22",border:"1px solid #30363d",borderRadius:9,padding:"10px 14px",color:"#e6edf3",fontFamily:FONT,fontSize:14,outline:"none"},
-  clearBtn:{display:"flex",alignItems:"center",background:"#21262d",border:"1px solid #30363d",color:"#8b949e",borderRadius:8,padding:"9px 10px",cursor:"pointer",marginLeft:-6},
-  sortGroup:{display:"flex",alignItems:"center",gap:6},
-  sortLbl:{color:"#8b949e",fontSize:13,fontFamily:DISPLAY},
-  sortBtn:(a)=>({padding:"7px 12px",borderRadius:7,border:"1px solid "+(a?"#79c0ff":"#30363d"),background:a?"#0d2740":"transparent",color:a?"#79c0ff":"#8b949e",cursor:"pointer",fontSize:13,fontFamily:FONT,fontWeight:a?700:400}),
-  trophyWall:{background:"linear-gradient(135deg,#1a1726,#161b22)",border:"1px solid #d2a8ff33",borderRadius:14,padding:18,marginBottom:24},
-  trophyHead:{display:"flex",alignItems:"center",gap:8,fontWeight:700,color:"#d2a8ff",marginBottom:14,fontFamily:DISPLAY,fontSize:14},
-  trophyGrid:{display:"flex",flexWrap:"wrap",gap:8},
-  trophyChip:{display:"flex",alignItems:"center",gap:6,background:"#0d1117",border:"1px solid #d2a8ff44",borderRadius:8,padding:"7px 11px",color:"#d2a8ff",fontSize:13},
-  trophyName:{color:"#e6edf3"},
-  col:{background:"#161b22",border:"1px solid #21262d",borderRadius:12,overflow:"hidden"},
-  colHead:{display:"flex",justifyContent:"space-between",padding:"12px 14px",fontWeight:700,fontSize:14,borderBottom:"1px solid #21262d",fontFamily:DISPLAY},
-  colCount:{color:"#6e7681"},
-  colBody:{padding:8,maxHeight:420,overflowY:"auto"},
-  colEmpty:{color:"#30363d",textAlign:"center",padding:16},
-  colGame:{background:"#0d1117",border:"1px solid #21262d",borderRadius:8,padding:"9px 11px",marginBottom:7},
-  colGameTop:{display:"flex",justifyContent:"space-between",alignItems:"flex-start",gap:6,marginBottom:6},
-  achRow:{display:"flex",alignItems:"center",gap:7,marginBottom:7},
-  achBar:{flex:1,height:4,background:"#21262d",borderRadius:3,overflow:"hidden"},
-  achFill:{height:"100%",borderRadius:3},
-  achTxt:{fontSize:11,fontFamily:DISPLAY,flexShrink:0},
-  colGameName:{fontSize:14},
-  platTag:{fontSize:10,border:"1px solid",borderRadius:5,padding:"1px 5px",flexShrink:0,fontFamily:DISPLAY},
-  colGameActions:{display:"flex",gap:5,flexWrap:"wrap"},
-  colBtn:{background:"#21262d",border:"1px solid #30363d",color:"#c9d1d9",borderRadius:6,padding:"3px 8px",fontSize:12,cursor:"pointer",fontFamily:FONT},
-  muted:{color:"#8b949e",fontSize:14,margin:0},
-  resetBtn:{background:"transparent",border:"1px solid #30363d",color:"#6e7681",borderRadius:8,padding:"8px 16px",cursor:"pointer",fontFamily:FONT,fontSize:13},
-  navLogin:{display:"flex",alignItems:"center",gap:6,padding:"7px 14px",borderRadius:8,border:"1px solid #7ee78744",background:"#0f2417",color:"#7ee787",cursor:"pointer",fontFamily:FONT,fontSize:14,fontWeight:600},
-  acctBox:{display:"flex",alignItems:"center",gap:8,padding:"5px 8px 5px 12px",borderRadius:8,border:"1px solid #30363d",background:"#161b22"},
-  acctEmail:{color:"#8b949e",fontSize:13,maxWidth:160,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"},
-  syncDot:(s)=>({width:9,height:9,borderRadius:99,flexShrink:0,background:s==="saved"?"#7ee787":s==="error"?"#f85149":s==="idle"?"#30363d":"#ffa657"}),
-  modalBg:{position:"fixed",inset:0,background:"rgba(0,0,0,.6)",backdropFilter:"blur(4px)",display:"flex",alignItems:"center",justifyContent:"center",zIndex:100,padding:20},
-  modal:{width:"100%",maxWidth:380,background:"#161b22",border:"1px solid #30363d",borderRadius:16,padding:28,display:"flex",flexDirection:"column"},
-  modalTitle:{fontFamily:DISPLAY,fontSize:22,fontWeight:700,color:"#fff",marginBottom:6},
-  modalSub:{color:"#8b949e",fontSize:14,marginBottom:20},
-  field:{background:"#0d1117",border:"1px solid #30363d",borderRadius:9,padding:"11px 14px",color:"#e6edf3",fontFamily:FONT,fontSize:14,outline:"none",marginBottom:12},
-  authGo:{background:"#ffa657",color:"#0d1117",border:"none",borderRadius:9,padding:"12px",fontWeight:700,fontFamily:FONT,fontSize:15,cursor:"pointer",marginTop:4},
-  authSwitch:{background:"transparent",border:"none",color:"#79c0ff",fontFamily:FONT,fontSize:13,cursor:"pointer",marginTop:14,padding:6},
-  authClose:{background:"transparent",border:"none",color:"#6e7681",fontFamily:FONT,fontSize:13,cursor:"pointer",marginTop:2,padding:6},
-  msgErr:{background:"#2d1416",border:"1px solid #f8514944",color:"#f85149",borderRadius:8,padding:"10px 12px",fontSize:13,marginBottom:12},
-  msgOk:{background:"#0f2417",border:"1px solid #7ee78744",color:"#7ee787",borderRadius:8,padding:"10px 12px",fontSize:13,marginBottom:12},
+const PLAT_TAG = {
+  pc: ["PC", "#79c0ff"],
+  deck: ["Deck", "#d2a8ff"],
+  both: ["PC+Deck", "#7ee787"]
 };
-
-ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+function Column({
+  title,
+  color,
+  games,
+  render,
+  showPlatform
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    style: S.col
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...S.colHead,
+      color
+    }
+  }, title, " ", /*#__PURE__*/React.createElement("span", {
+    style: S.colCount
+  }, games.length)), /*#__PURE__*/React.createElement("div", {
+    style: S.colBody
+  }, games.length === 0 && /*#__PURE__*/React.createElement("p", {
+    style: S.colEmpty
+  }, "\\u2014"), games.map(g => /*#__PURE__*/React.createElement("div", {
+    key: g.id,
+    style: S.colGame
+  }, /*#__PURE__*/React.createElement("div", {
+    style: S.colGameTop
+  }, /*#__PURE__*/React.createElement("span", {
+    style: S.colGameName
+  }, g.name), showPlatform && g.platform && /*#__PURE__*/React.createElement("span", {
+    style: {
+      ...S.platTag,
+      color: PLAT_TAG[g.platform][1],
+      borderColor: PLAT_TAG[g.platform][1] + "55"
+    }
+  }, PLAT_TAG[g.platform][0])), g.achTotal > 0 && /*#__PURE__*/React.createElement("div", {
+    style: S.achRow
+  }, /*#__PURE__*/React.createElement("div", {
+    style: S.achBar
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...S.achFill,
+      width: g.achPct + "%",
+      background: achColor(g)
+    }
+  })), /*#__PURE__*/React.createElement("span", {
+    style: {
+      ...S.achTxt,
+      color: achColor(g)
+    }
+  }, achLabel(g))), render(g)))));
+}
+const FONT = "'DM Sans', -apple-system, sans-serif";
+const DISPLAY = "'Space Mono', monospace";
+const S = {
+  root: {
+    minHeight: "100vh",
+    background: "#0d1117",
+    color: "#e6edf3",
+    fontFamily: FONT,
+    paddingBottom: 60
+  },
+  header: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: "18px 28px",
+    borderBottom: "1px solid #21262d",
+    position: "sticky",
+    top: 0,
+    background: "rgba(13,17,23,.85)",
+    backdropFilter: "blur(10px)",
+    zIndex: 10
+  },
+  brand: {
+    display: "flex",
+    alignItems: "center",
+    gap: 8,
+    fontFamily: DISPLAY,
+    fontWeight: 700,
+    letterSpacing: 1,
+    color: "#ffa657"
+  },
+  nav: {
+    display: "flex",
+    gap: 8,
+    alignItems: "center"
+  },
+  navBtn: a => ({
+    display: "flex",
+    alignItems: "center",
+    gap: 6,
+    padding: "7px 14px",
+    borderRadius: 8,
+    border: "1px solid " + (a ? "#ffa657" : "#30363d"),
+    background: a ? "#1c1408" : "transparent",
+    color: a ? "#ffa657" : "#8b949e",
+    cursor: "pointer",
+    fontFamily: FONT,
+    fontSize: 14
+  }),
+  navGhost: {
+    display: "flex",
+    alignItems: "center",
+    padding: "7px 10px",
+    borderRadius: 8,
+    border: "1px solid #30363d",
+    background: "transparent",
+    color: "#8b949e",
+    cursor: "pointer"
+  },
+  navRefresh: {
+    display: "flex",
+    alignItems: "center",
+    gap: 6,
+    padding: "7px 12px",
+    borderRadius: 8,
+    border: "1px solid #ffa65744",
+    background: "#1c1408",
+    color: "#ffa657",
+    cursor: "pointer",
+    fontFamily: FONT,
+    fontSize: 13,
+    fontWeight: 600
+  },
+  badge: {
+    background: "#ffa657",
+    color: "#0d1117",
+    borderRadius: 99,
+    padding: "1px 7px",
+    fontSize: 12,
+    fontWeight: 700
+  },
+  center: {
+    maxWidth: 560,
+    margin: "0 auto",
+    padding: "60px 24px",
+    textAlign: "center"
+  },
+  h2: {
+    fontFamily: DISPLAY,
+    fontSize: 28,
+    margin: "12px 0"
+  },
+  lead: {
+    color: "#8b949e",
+    fontSize: 17,
+    lineHeight: 1.6,
+    margin: "0 0 28px"
+  },
+  bigBtn: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 10,
+    background: "#ffa657",
+    color: "#0d1117",
+    border: "none",
+    padding: "14px 26px",
+    borderRadius: 10,
+    fontSize: 16,
+    fontWeight: 700,
+    cursor: "pointer",
+    fontFamily: FONT
+  },
+  triageMeta: {
+    color: "#8b949e",
+    fontSize: 14,
+    marginBottom: 18,
+    fontFamily: DISPLAY
+  },
+  card: {
+    background: "linear-gradient(135deg,#161b22,#1c2230)",
+    border: "1px solid #30363d",
+    borderRadius: 16,
+    padding: "44px 28px",
+    marginBottom: 28,
+    animation: "pop .25s ease"
+  },
+  cardName: {
+    fontSize: 26,
+    fontWeight: 700,
+    marginBottom: 12,
+    lineHeight: 1.2
+  },
+  cardTime: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 6,
+    color: "#8b949e",
+    fontSize: 14
+  },
+  triageBtns: {
+    display: "grid",
+    gridTemplateColumns: "repeat(4,1fr)",
+    gap: 10
+  },
+  tMust: {
+    borderColor: "#f778ba44",
+    color: "#f778ba"
+  },
+  tDone: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 6,
+    marginTop: 12,
+    padding: "9px 18px",
+    borderRadius: 10,
+    border: "1px solid #7ee78744",
+    background: "#0f2417",
+    color: "#7ee787",
+    cursor: "pointer",
+    fontFamily: FONT,
+    fontSize: 14,
+    fontWeight: 600
+  },
+  tBtn: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: 6,
+    padding: "16px 8px",
+    borderRadius: 12,
+    border: "1px solid #30363d",
+    background: "#161b22",
+    color: "#e6edf3",
+    cursor: "pointer",
+    fontFamily: FONT,
+    fontSize: 15,
+    fontWeight: 600
+  },
+  tNever: {
+    borderColor: "#f8514944",
+    color: "#f85149"
+  },
+  tSomeday: {
+    borderColor: "#79c0ff44",
+    color: "#79c0ff"
+  },
+  tShort: {
+    borderColor: "#ffa65744",
+    color: "#ffa657"
+  },
+  tPC: {
+    borderColor: "#79c0ff44",
+    color: "#79c0ff"
+  },
+  tDeck: {
+    borderColor: "#d2a8ff44",
+    color: "#d2a8ff"
+  },
+  tBoth: {
+    borderColor: "#7ee78744",
+    color: "#7ee787"
+  },
+  hint: {
+    color: "#6e7681",
+    fontSize: 13,
+    marginTop: 18
+  },
+  doneTriage: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: 4,
+    color: "#7ee787"
+  },
+  board: {
+    maxWidth: 1100,
+    margin: "0 auto",
+    padding: "28px 24px"
+  },
+  stats: {
+    display: "grid",
+    gridTemplateColumns: "repeat(5,1fr)",
+    gap: 12,
+    marginBottom: 18
+  },
+  statBox: {
+    background: "#161b22",
+    border: "1px solid #21262d",
+    borderRadius: 12,
+    padding: "16px 18px"
+  },
+  statIcon: {
+    marginBottom: 8
+  },
+  statValue: {
+    fontSize: 28,
+    fontWeight: 700,
+    fontFamily: DISPLAY,
+    lineHeight: 1
+  },
+  statLabel: {
+    color: "#8b949e",
+    fontSize: 13,
+    marginTop: 4
+  },
+  warn: {
+    display: "flex",
+    alignItems: "center",
+    gap: 10,
+    background: "#1c1408",
+    border: "1px solid #f8514933",
+    color: "#ffa657",
+    borderRadius: 10,
+    padding: "12px 16px",
+    fontSize: 14,
+    marginBottom: 18
+  },
+  activeRow: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: 16,
+    marginBottom: 16
+  },
+  slotBox: {
+    background: "#161b22",
+    border: "1px solid #21262d",
+    borderRadius: 14,
+    padding: 18
+  },
+  slotHead: {
+    display: "flex",
+    alignItems: "center",
+    gap: 8,
+    fontWeight: 700,
+    marginBottom: 12
+  },
+  activeGame: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    gap: 10,
+    padding: "10px 0",
+    borderTop: "1px solid #21262d"
+  },
+  activeActions: {
+    display: "flex",
+    gap: 6,
+    flexShrink: 0
+  },
+  miniDone: {
+    display: "flex",
+    alignItems: "center",
+    gap: 4,
+    background: "#0f2417",
+    border: "1px solid #7ee78744",
+    color: "#7ee787",
+    borderRadius: 7,
+    padding: "5px 9px",
+    cursor: "pointer",
+    fontSize: 13,
+    fontFamily: FONT
+  },
+  miniDrop: {
+    display: "flex",
+    alignItems: "center",
+    gap: 4,
+    background: "#21262d",
+    border: "1px solid #30363d",
+    color: "#8b949e",
+    borderRadius: 7,
+    padding: "5px 9px",
+    cursor: "pointer",
+    fontSize: 13,
+    fontFamily: FONT
+  },
+  pickBox: {
+    background: "linear-gradient(135deg,#1c1408,#161b22)",
+    border: "1px solid #ffa65733",
+    borderRadius: 14,
+    padding: 20,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+    marginBottom: 24
+  },
+  pickFilters: {
+    display: "flex",
+    alignItems: "center",
+    gap: 8,
+    marginBottom: 14
+  },
+  pickFilterLbl: {
+    color: "#8b949e",
+    fontSize: 13,
+    fontFamily: DISPLAY
+  },
+  filterBtn: a => ({
+    padding: "5px 12px",
+    borderRadius: 7,
+    border: "1px solid " + (a ? "#ffa657" : "#30363d"),
+    background: a ? "#ffa657" : "transparent",
+    color: a ? "#0d1117" : "#8b949e",
+    cursor: "pointer",
+    fontSize: 13,
+    fontFamily: FONT,
+    fontWeight: a ? 700 : 400
+  }),
+  pickName: {
+    fontSize: 24,
+    fontWeight: 700,
+    margin: "8px 0 16px",
+    color: "#ffa657"
+  },
+  pickBtns: {
+    display: "flex",
+    gap: 10,
+    flexWrap: "wrap",
+    justifyContent: "center"
+  },
+  pickGo: {
+    display: "flex",
+    alignItems: "center",
+    gap: 6,
+    background: "#79c0ff",
+    color: "#0d1117",
+    border: "none",
+    padding: "10px 16px",
+    borderRadius: 9,
+    fontWeight: 700,
+    cursor: "pointer",
+    fontFamily: FONT
+  },
+  pickGoDeck: {
+    display: "flex",
+    alignItems: "center",
+    gap: 6,
+    background: "#d2a8ff",
+    color: "#0d1117",
+    border: "none",
+    padding: "10px 16px",
+    borderRadius: 9,
+    fontWeight: 700,
+    cursor: "pointer",
+    fontFamily: FONT
+  },
+  pickAgain: {
+    display: "flex",
+    alignItems: "center",
+    gap: 6,
+    background: "transparent",
+    color: "#ffa657",
+    border: "1px solid #ffa65744",
+    padding: "10px 16px",
+    borderRadius: 9,
+    cursor: "pointer",
+    fontFamily: FONT
+  },
+  columns: {
+    display: "grid",
+    gridTemplateColumns: "repeat(4,1fr)",
+    gap: 14
+  },
+  toolbar: {
+    display: "flex",
+    alignItems: "center",
+    gap: 10,
+    marginBottom: 16,
+    flexWrap: "wrap"
+  },
+  searchInput: {
+    flex: "1 1 200px",
+    minWidth: 160,
+    background: "#161b22",
+    border: "1px solid #30363d",
+    borderRadius: 9,
+    padding: "10px 14px",
+    color: "#e6edf3",
+    fontFamily: FONT,
+    fontSize: 14,
+    outline: "none"
+  },
+  clearBtn: {
+    display: "flex",
+    alignItems: "center",
+    background: "#21262d",
+    border: "1px solid #30363d",
+    color: "#8b949e",
+    borderRadius: 8,
+    padding: "9px 10px",
+    cursor: "pointer",
+    marginLeft: -6
+  },
+  sortGroup: {
+    display: "flex",
+    alignItems: "center",
+    gap: 6
+  },
+  sortLbl: {
+    color: "#8b949e",
+    fontSize: 13,
+    fontFamily: DISPLAY
+  },
+  sortBtn: a => ({
+    padding: "7px 12px",
+    borderRadius: 7,
+    border: "1px solid " + (a ? "#79c0ff" : "#30363d"),
+    background: a ? "#0d2740" : "transparent",
+    color: a ? "#79c0ff" : "#8b949e",
+    cursor: "pointer",
+    fontSize: 13,
+    fontFamily: FONT,
+    fontWeight: a ? 700 : 400
+  }),
+  trophyWall: {
+    background: "linear-gradient(135deg,#1a1726,#161b22)",
+    border: "1px solid #d2a8ff33",
+    borderRadius: 14,
+    padding: 18,
+    marginBottom: 24
+  },
+  trophyHead: {
+    display: "flex",
+    alignItems: "center",
+    gap: 8,
+    fontWeight: 700,
+    color: "#d2a8ff",
+    marginBottom: 14,
+    fontFamily: DISPLAY,
+    fontSize: 14
+  },
+  trophyGrid: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: 8
+  },
+  trophyChip: {
+    display: "flex",
+    alignItems: "center",
+    gap: 6,
+    background: "#0d1117",
+    border: "1px solid #d2a8ff44",
+    borderRadius: 8,
+    padding: "7px 11px",
+    color: "#d2a8ff",
+    fontSize: 13
+  },
+  trophyName: {
+    color: "#e6edf3"
+  },
+  col: {
+    background: "#161b22",
+    border: "1px solid #21262d",
+    borderRadius: 12,
+    overflow: "hidden"
+  },
+  colHead: {
+    display: "flex",
+    justifyContent: "space-between",
+    padding: "12px 14px",
+    fontWeight: 700,
+    fontSize: 14,
+    borderBottom: "1px solid #21262d",
+    fontFamily: DISPLAY
+  },
+  colCount: {
+    color: "#6e7681"
+  },
+  colBody: {
+    padding: 8,
+    maxHeight: 420,
+    overflowY: "auto"
+  },
+  colEmpty: {
+    color: "#30363d",
+    textAlign: "center",
+    padding: 16
+  },
+  colGame: {
+    background: "#0d1117",
+    border: "1px solid #21262d",
+    borderRadius: 8,
+    padding: "9px 11px",
+    marginBottom: 7
+  },
+  colGameTop: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    gap: 6,
+    marginBottom: 6
+  },
+  achRow: {
+    display: "flex",
+    alignItems: "center",
+    gap: 7,
+    marginBottom: 7
+  },
+  achBar: {
+    flex: 1,
+    height: 4,
+    background: "#21262d",
+    borderRadius: 3,
+    overflow: "hidden"
+  },
+  achFill: {
+    height: "100%",
+    borderRadius: 3
+  },
+  achTxt: {
+    fontSize: 11,
+    fontFamily: DISPLAY,
+    flexShrink: 0
+  },
+  colGameName: {
+    fontSize: 14
+  },
+  platTag: {
+    fontSize: 10,
+    border: "1px solid",
+    borderRadius: 5,
+    padding: "1px 5px",
+    flexShrink: 0,
+    fontFamily: DISPLAY
+  },
+  colGameActions: {
+    display: "flex",
+    gap: 5,
+    flexWrap: "wrap"
+  },
+  colBtn: {
+    background: "#21262d",
+    border: "1px solid #30363d",
+    color: "#c9d1d9",
+    borderRadius: 6,
+    padding: "3px 8px",
+    fontSize: 12,
+    cursor: "pointer",
+    fontFamily: FONT
+  },
+  muted: {
+    color: "#8b949e",
+    fontSize: 14,
+    margin: 0
+  },
+  resetBtn: {
+    background: "transparent",
+    border: "1px solid #30363d",
+    color: "#6e7681",
+    borderRadius: 8,
+    padding: "8px 16px",
+    cursor: "pointer",
+    fontFamily: FONT,
+    fontSize: 13
+  },
+  navLogin: {
+    display: "flex",
+    alignItems: "center",
+    gap: 6,
+    padding: "7px 14px",
+    borderRadius: 8,
+    border: "1px solid #7ee78744",
+    background: "#0f2417",
+    color: "#7ee787",
+    cursor: "pointer",
+    fontFamily: FONT,
+    fontSize: 14,
+    fontWeight: 600
+  },
+  acctBox: {
+    display: "flex",
+    alignItems: "center",
+    gap: 8,
+    padding: "5px 8px 5px 12px",
+    borderRadius: 8,
+    border: "1px solid #30363d",
+    background: "#161b22"
+  },
+  acctEmail: {
+    color: "#8b949e",
+    fontSize: 13,
+    maxWidth: 160,
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap"
+  },
+  syncDot: s => ({
+    width: 9,
+    height: 9,
+    borderRadius: 99,
+    flexShrink: 0,
+    background: s === "saved" ? "#7ee787" : s === "error" ? "#f85149" : s === "idle" ? "#30363d" : "#ffa657"
+  }),
+  modalBg: {
+    position: "fixed",
+    inset: 0,
+    background: "rgba(0,0,0,.6)",
+    backdropFilter: "blur(4px)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    zIndex: 100,
+    padding: 20
+  },
+  modal: {
+    width: "100%",
+    maxWidth: 380,
+    background: "#161b22",
+    border: "1px solid #30363d",
+    borderRadius: 16,
+    padding: 28,
+    display: "flex",
+    flexDirection: "column"
+  },
+  modalTitle: {
+    fontFamily: DISPLAY,
+    fontSize: 22,
+    fontWeight: 700,
+    color: "#fff",
+    marginBottom: 6
+  },
+  modalSub: {
+    color: "#8b949e",
+    fontSize: 14,
+    marginBottom: 20
+  },
+  field: {
+    background: "#0d1117",
+    border: "1px solid #30363d",
+    borderRadius: 9,
+    padding: "11px 14px",
+    color: "#e6edf3",
+    fontFamily: FONT,
+    fontSize: 14,
+    outline: "none",
+    marginBottom: 12
+  },
+  authGo: {
+    background: "#ffa657",
+    color: "#0d1117",
+    border: "none",
+    borderRadius: 9,
+    padding: "12px",
+    fontWeight: 700,
+    fontFamily: FONT,
+    fontSize: 15,
+    cursor: "pointer",
+    marginTop: 4
+  },
+  authSwitch: {
+    background: "transparent",
+    border: "none",
+    color: "#79c0ff",
+    fontFamily: FONT,
+    fontSize: 13,
+    cursor: "pointer",
+    marginTop: 14,
+    padding: 6
+  },
+  authClose: {
+    background: "transparent",
+    border: "none",
+    color: "#6e7681",
+    fontFamily: FONT,
+    fontSize: 13,
+    cursor: "pointer",
+    marginTop: 2,
+    padding: 6
+  },
+  msgErr: {
+    background: "#2d1416",
+    border: "1px solid #f8514944",
+    color: "#f85149",
+    borderRadius: 8,
+    padding: "10px 12px",
+    fontSize: 13,
+    marginBottom: 12
+  },
+  msgOk: {
+    background: "#0f2417",
+    border: "1px solid #7ee78744",
+    color: "#7ee787",
+    borderRadius: 8,
+    padding: "10px 12px",
+    fontSize: 13,
+    marginBottom: 12
+  }
+};
+ReactDOM.createRoot(document.getElementById('root')).render(/*#__PURE__*/React.createElement(App, null));
 </script>
 </body>
 </html>
